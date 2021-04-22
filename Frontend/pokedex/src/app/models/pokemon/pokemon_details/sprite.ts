@@ -2,5 +2,5 @@ import { Other } from "./other";
 
 
 export class Sprite {
-    public other: Other
+    public front_default: String
 }
