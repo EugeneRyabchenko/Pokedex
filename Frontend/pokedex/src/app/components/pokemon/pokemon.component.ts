@@ -25,7 +25,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
             this.pokemonService.getPokemonByOrder(1).subscribe(
                 (p) => {
                     this.pokemon = p,
-                    console.log ("pokemon ", p.abilities[0].ability.name)
+                    console.log ("pokemon ", p)
                 }
             )
         )

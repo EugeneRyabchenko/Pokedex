@@ -1,17 +1,36 @@
-
-
 <div class="row justify-content-between">
-        <div class="col-3">
-            <h5> Name: {{pokemon?.name}} </h5>
-        </div>
-        <div class="col-3">
-            
-            <h3> Abilities: {{pokemon?.abilities[0].ability.name}}  </h3>
-        </div>
-        <div class="col-3">
-            <h5> Sprite: <img [src]="pokemon?.pciture">  </h5>
-        </div>
-        <div class="col-3">
-            <h5> Order: {{pokemon?.order}} </h5>
-        </div>      
+    <div class="col-3">
+        <h3> Order: {{pokemon?.order}} </h3>
+    </div>
+    <div class="col-3">
+        <h3> Name: {{pokemon?.name}} </h3>
+    </div>
+    <div class="col-3">
+        <h3> Abilities:
+            <ng-container *ngFor="let a of pokemon?.abilities">
+                {{a.ability.name}}
+            </ng-container>
+        </h3>
+        <h3> Types:
+            <ng-container *ngFor="let t of pokemon?.types">
+                {{t.type.name}}
+            </ng-container>
+        </h3>
+        <h3> Stats:
+            <ng-container *ngFor="let s of pokemon?.stats">
+                {{s.stat.name}}
+            </ng-container>
+        </h3>
+        <h3> Moves:
+            <ng-container *ngFor="let m of pokemon?.moves">
+                {{m.move.name}}
+            </ng-container>
+        </h3>
+
+    </div>
+    <div class="col-3">
+        <h3> Sprite: <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>
+    </div>
+
+
 </div>

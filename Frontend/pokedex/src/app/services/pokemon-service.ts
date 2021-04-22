@@ -15,11 +15,11 @@ export class PokemonService{
       public getPokemonByOrder(order: number): Observable<Pokemon> {
         const response$ = this.httpClient.get("https://pokeapi.co/api/v2/pokemon/"+order)
       
-        const picUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+order+".png"
+    //    const picUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+order+".png"
 
         const pokemon$: Observable<Pokemon> = response$.pipe(
           map((jsonPokemon: any) => {
-            const p = Pokemon.fromJson(jsonPokemon, picUrl)
+            const p = Pokemon.fromJson(jsonPokemon)
             return p
           })
         )
