@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
+import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 const routes: Routes = [
@@ -9,7 +9,7 @@ const routes: Routes = [
   children: [
     { path: 'pokemon', component: PokemonListComponent },
   //  { path: 'videos/new', component: VideoDetailsComponent},
- //   { path: 'videos/:id', component: VideoDetailsComponent},
+      { path: 'pokemon/:id', component: PokemonDetailsComponent},
  //   { path: 'user-registration', component: UserRegistrationComponent},
  //   { path: 'training', component: ProgrammingTraining},
     { path: '**', redirectTo: 'pokemon'}

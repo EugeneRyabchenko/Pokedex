@@ -1,6 +1,7 @@
 import { EventEmitter, Input, Output } from "@angular/core";
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { Pokemon, PokemonResults, Result } from "src/app/models/pokemon/pokemon";
 import { PokemonService } from "src/app/services/pokemon-service";
@@ -21,11 +22,9 @@ import { PokemonService } from "src/app/services/pokemon-service";
     @Input() results: Result[]
 
 
-    @Output() public clickPokemonItem: EventEmitter<PokemonResults> = new EventEmitter<PokemonResults>()
-
     private subscription: Subscription = new Subscription()
 
-    constructor(private pokemonService: PokemonService){}
+    constructor(private pokemonService: PokemonService, private router: Router){}
   
     ngOnInit(): void {
         this.subscription.add(
@@ -33,11 +32,8 @@ import { PokemonService } from "src/app/services/pokemon-service";
                 (r) => {
                     this.results = r.results
                     console.log ("results ", r)
-                   
-                 
                     })
         )
-  //      this.clickPokemonItem.emit(this.results)
         this.pokemonService.getAllPokemon()
     
     }
@@ -46,4 +42,12 @@ import { PokemonService } from "src/app/services/pokemon-service";
         this.subscription.unsubscribe()
           }      
      
+  
+
+  public onClickDetails(id: string): void {
+    
+      this.router.navigate(['pokemon/' + id])
+    
   }
+
+}
