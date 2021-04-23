@@ -1,5 +1,6 @@
 
 
+
 export class Pokemon {
     public sprites: Sprites
     public name: String
@@ -8,6 +9,7 @@ export class Pokemon {
     public order: number
     public stats: Stat[]
     public moves: Move[]
+    public url: String
 
     public static fromJson(json: any): Pokemon {
         
@@ -18,11 +20,13 @@ export class Pokemon {
             types: json.types?.map((t) => Type.fromJson(t)),
             order: json.order,
             stats: json.stats?.map((s) => Stat.fromJson(s)),
-            moves: json.moves?.map((m) => Move.fromJson(m))
+            moves: json.moves?.map((m) => Move.fromJson(m)),
+            url: json.url
         }
         return p
     }
 }
+
 
 export class OfficialArtwork {
     public frontDefault: String  //<-- actual artwork URL
@@ -50,10 +54,12 @@ export class Other {
 }
 
 export class Sprites {
+    public thumbnail: String
     public other: Other
 
     public static fromJson(json: any): Sprites {
         const s: Sprites = {
+            thumbnail: json.front_default,
             other: Other.fromJson(json.other)
         }
         return s
@@ -119,11 +125,13 @@ export class StatName {
 }
 
 export class Stat {
+    public statValue: number
     public stat: StatName
 
     public static fromJson(json: any): Stat {
         
         const s: Stat = {
+            statValue: json.base_stat,
             stat: StatName.fromJson(json.stat)
         }
         return s
@@ -149,6 +157,33 @@ export class Move {
             move: MoveName.fromJson(json.move)
         }
         return m
+    }
+}
+
+export class PokemonResults {
+    public results: Result[]
+
+    public static fromJson(json: any): PokemonResults {
+        
+        const l: PokemonResults = {
+            
+            results: json.results.map((l) => Result.fromJson(l))
+        }
+        return l
+    }
+}
+
+
+export class Result {        
+    public name: String       //<-- the name of the pokemon in the list of all pokemons
+    public url: String      //<-- the name of the pokemon in the list of all pokemons
+
+    public static fromJson(json: any): Result {
+        const r: Result = {
+            name: json.name,
+            url: json.url
+        }
+        return r
     }
 }
 

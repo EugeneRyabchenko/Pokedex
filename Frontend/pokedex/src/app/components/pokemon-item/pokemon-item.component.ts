@@ -6,11 +6,11 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
 import { PokemonService } from "src/app/services/pokemon-service";
 
 @Component({
-    selector: 'app-pokemon',
-    templateUrl: './pokemon.component.html',
-    styleUrls: ['./pokemon.component.css']
+    selector: 'app-pokemon-item',
+    templateUrl: './pokemon-item.component.html',
+    styleUrls: ['./pokemon-item.component.css']
   })
-  export class PokemonComponent implements OnInit {
+  export class PokemonItemComponent implements OnInit {
   
     @Input() pokemon: Pokemon
 
@@ -22,7 +22,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
   
     ngOnInit(): void {
         this.subscription.add(
-            this.pokemonService.getPokemonByOrder(1).subscribe(
+            this.pokemonService.getPokemonByUrl(1).subscribe(
                 (p) => {
                     this.pokemon = p,
                     console.log ("pokemon ", p)
@@ -32,7 +32,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
 
         this.clickPokemonItem.emit(this.pokemon)
         console.log(this.pokemon)
-        this.pokemonService.getPokemonByOrder(1)
+        this.pokemonService.getPokemonByUrl(1)
     }
 
     ngOnDestroy(): void {
