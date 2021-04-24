@@ -15,8 +15,8 @@ export class PokemonService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getPokemonByUrl(id: String): Observable<Pokemon> {
-    const response$ = this.httpClient.get(PokemonService.pokemonBaseUrl + id)
+  public getPokemonByUrl(name: String): Observable<Pokemon> {
+    const response$ = this.httpClient.get(PokemonService.pokemonBaseUrl + name)
 
     const pokemon$: Observable<Pokemon> = response$.pipe(
       map((response: any) => {

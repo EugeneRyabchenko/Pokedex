@@ -40,7 +40,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
         )
 
         this.clickPokemonItem.emit(this.pokemon)
-        console.log(this.pokemon)
+        console.log("details of this pokemon: " + this.pokemon)
         this.pokemonService.getPokemonByUrl(id)
     }
 

@@ -1,41 +1,44 @@
-<div class="row">
-    <div class="col-3">
-        <h3> Order: {{pokemon?.order}} </h3>
-    </div>
-    <div class="col-3">
-        <h3> Name: {{pokemon?.name}} </h3>
-    </div>
-  <!--  <div class="col-3">
+<body>
+
+<h3> Order: {{pokemon?.order}} </h3>
+
+
+    <h3 matLine> Name: {{pokemon?.name}} </h3>
+
+
+<p matLine>
+    <span class="myDIV">
+    <span> <img matListAvatar [src]="pokemon?.sprites.thumbnail">  </span>
+</span>
+</p>
+<div class="hide">
+    <h3> <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>
+</div>
+
+</body>
+
+
+
+
+
+<!--  <div class="col-3">
         <h3> Abilities:
             <ng-container *ngFor="let a of pokemon?.abilities">
                 {{a.ability.name}}
             </ng-container>
         </h3>      -->
-  <!--      <h3> Types:
+<!--      <h3> Types:
             <ng-container *ngFor="let t of pokemon?.types">
                 {{t.type.name}}
             </ng-container>
         </h3>     -->
- <!--       <h3> Stats:
+<!--       <h3> Stats:
             <ng-container *ngFor="let s of pokemon?.stats">
                 {{s.stat.name}} {{s.statValue}}
             </ng-container>
         </h3>     -->
- <!--       <h3> Moves:
+<!--       <h3> Moves:
             <ng-container *ngFor="let m of pokemon?.moves">
                 {{m.move.name}}
             </ng-container>
         </h3>   -->
-
-    
-    <div class="col-6">
-       <div class="myDIV">  <h3> Sprite: <img [src]="pokemon?.sprites.thumbnail"> </h3></div>
-            
-             <div class="hide">    
-                  <h3> Sprite: <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>  
-                </div>
-            
-    </div>
-
-
-</div>

@@ -29,12 +29,12 @@ import { PokemonService } from "src/app/services/pokemon-service";
     ngOnInit(): void {
 
         this.subscription.add(
-            this.pokemonService.getPokemonByUrl(this.pokemonName).subscribe(
-                (p) => {
-                    this.pokemon = p,
-                    console.log ("pokemon ", p)
-                }
-            )
+  //          this.pokemonService.getPokemonByUrl(this.pokemonName).subscribe(
+  //              (p) => {
+  //                  this.pokemon = p,
+  //                  console.log ("pokemon ", p)
+  //              }
+  //          )
         )
     }
 

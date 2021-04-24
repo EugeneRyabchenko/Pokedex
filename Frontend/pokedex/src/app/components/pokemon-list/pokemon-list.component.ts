@@ -2,9 +2,11 @@ import { EventEmitter, Input, Output } from "@angular/core";
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { concat, Subscription } from "rxjs";
+import { concat, forkJoin, Subscription } from "rxjs";
+import { switchMap } from "rxjs/operators";
 import { Pokemon, PokemonResults, Result } from "src/app/models/pokemon/pokemon";
 import { PokemonService } from "src/app/services/pokemon-service";
+
 
 
 
@@ -21,6 +23,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
   
     @Input() pokemon: Pokemon
     @Input() results: Result[]
+    @Input() pokemons: Pokemon[] = []
 
 
     private subscription: Subscription = new Subscription()
@@ -28,16 +31,53 @@ import { PokemonService } from "src/app/services/pokemon-service";
     constructor(private pokemonService: PokemonService, private router: Router){}
   
     ngOnInit(): void {
-        this.subscription.add(
-            this.pokemonService.getAllPokemon(this.listOffset).subscribe(
-                (r) => {
-                    this.results = r.results
-                    console.log ("results ", r)
+       
+               const pokemonDetails$ = this.pokemonService.getAllPokemon(this.listOffset).pipe(
+                    switchMap(r => {
+                        this.results = r.results
+                        console.log("in switch map AAAAAAAAAAAAAAA: ", r)
+                        const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
+                        return forkJoin(pokemonDetails)
                     })
-        )
-        this.pokemonService.getAllPokemon(this.listOffset)
-    
+                )
+                
+                this.subscription.add(
+                    pokemonDetails$.subscribe(
+                        r => {
+                            console.log("ZZZZZZZZZZZ: ", r )
+                        this.pokemons = r
+                        }
+                    )
+                )
     }
+  //              this.pokemonService.getAllPokemon(this.listOffset).subscribe(
+  //                  (r) => {
+  //                      this.results = r.results
+  //                      console.log ("results ", r)
+   //                     })
+            
+  //          this.pokemonService.getAllPokemon(this.listOffset)
+
+
+     
+  //          for(let i=1; i<20; i++){
+  //              this.subscription.add(
+   //         this.pokemonService.getPokemonByUrl(this.results[i].name).subscribe(
+  //              (p) => {
+   //                 this.pokemon = p,
+                   
+  //                  this.pokemons.push(p)
+  //                  console.log ("pokemons ",  this.pokemons)
+ //               }
+  //              
+  //          )
+ //       )}
+
+/*
+
+       
+    */
+    
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe()
@@ -46,7 +86,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
   
 
   public onClickDetails(id: string): void {
-    
+    console.log ("I HAVE BEEN CLICKED")
       this.router.navigate(['pokemon/' + id])
     
   }
