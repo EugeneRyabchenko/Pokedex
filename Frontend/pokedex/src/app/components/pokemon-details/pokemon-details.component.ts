@@ -14,6 +14,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
   export class PokemonDetailsComponent implements OnInit {
   
     @Input() pokemon: Pokemon
+    
 
     @Output() public clickPokemonItem: EventEmitter<Pokemon> = new EventEmitter<Pokemon>()
   
@@ -47,7 +48,11 @@ import { PokemonService } from "src/app/services/pokemon-service";
         this.subscription.unsubscribe()
           }
 
-
+          public onClickBackToList(): void {
+    
+            this.router.navigate(['pokemon/'])
+          
+        }
   
      
   }
