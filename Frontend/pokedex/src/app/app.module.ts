@@ -11,6 +11,9 @@ import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.com
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { FilterPipe } from './filter.pipe';
 import { PokemonService } from './services/pokemon-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { PokemonService } from './services/pokemon-service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
