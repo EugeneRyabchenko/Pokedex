@@ -1,11 +1,11 @@
 <div class="row justify-content-between">
-    <div class="col-3">
+    <div class="col-6">
         <h3> Order: {{pokemon?.order}} </h3>
-    </div>
-    <div class="col-3">
         <h3> Name: {{pokemon?.name}} </h3>
-    </div>
-    <div class="col-3">
+        <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault">
+    
+
+    <div class="col-6">
         <h3> Abilities:
             <ng-container *ngFor="let a of pokemon?.abilities">
                 {{a.ability.name}}
@@ -28,9 +28,7 @@
         </h3>
 
     </div>
-    <div class="col-3">
-        <h3> Sprite: <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>
-    </div>
+
 
 
 </div>

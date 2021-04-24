@@ -35,11 +35,21 @@
 
 
 --> 
+<div (click)="onClickPrevious()">
+<button type="button" class="btn btn-danger">
+  <div class="font-weight-bold mb-0">PREVIOUS</div>
+</button>
+</div>
 
-{{results[0].name}}
+<div (click)="onClickNext()">
+<button type="button" class="btn btn-success">
+  <div class="font-weight-bold mb-0">NEXT</div>
+</button>
+</div>
 
 <ng-container *ngFor="let r of results">
-    <app-pokemon-item [pokemonName] = "r.name">
+    <app-pokemon-item [pokemonName] = "r.name" (click)="onClickDetails(r.name)">
+  <!--     (click)="onClickDetails(pokemon.name)">{{pokemon.name}}  -->
     </app-pokemon-item>
     </ng-container>
 
