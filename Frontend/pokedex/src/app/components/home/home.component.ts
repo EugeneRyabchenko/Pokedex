@@ -22,9 +22,5 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
   }
 
   ngOnDestroy(): void {
-  //  this.subscription.unsubscribe()
       }
-  
-  
-
     }

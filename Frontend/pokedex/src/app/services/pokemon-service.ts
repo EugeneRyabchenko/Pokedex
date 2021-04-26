@@ -27,20 +27,15 @@ export class PokemonService {
     return pokemon$
   }
 
-
-  public getAllPokemon(listOffset: number): Observable<PokemonResults> {
-    const limit = 20
-    const response$ = this.httpClient.get(PokemonService.pokemonBaseUrl + '?offset=' + listOffset + '&limit=' + limit)// + '?offset=0&limit=898')
-
+  public getAllPokemon(offset: number): Observable<PokemonResults> {
+    const response$ = this.httpClient.get(PokemonService.pokemonBaseUrl + '?offset=' + offset + '&limit=20')
     const results$: Observable<PokemonResults> = response$.pipe(
       map((response: any) => {
-        const l = PokemonResults.fromJson(response)
-        return l
+        const pr = PokemonResults.fromJson(response)
+        return pr
       })
     )
-
     return results$
-
   }
 
 }

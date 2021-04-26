@@ -55,8 +55,10 @@ mat-action-list::-webkit-scrollbar {
 
   mat-paginator {
     min-width: 60%;
-    font-size: 16px
+    font-size: 14px
   }
+
+  
 
 
 

@@ -162,15 +162,20 @@ export class Move {
 }
 
 export class PokemonResults {
+    public count: number
+    public next: string
+    public previous: string
     public results: Result[]
 
     public static fromJson(json: any): PokemonResults {
         
-        const l: PokemonResults = {
-            
-            results: json.results.map((l) => Result.fromJson(l))
+        const pr: PokemonResults = {
+            count: json.count,
+            next: json.next,
+            previous: json.previous,
+            results: json.results.map((pr) => Result.fromJson(pr))
         }
-        return l
+        return pr
     }
 }
 

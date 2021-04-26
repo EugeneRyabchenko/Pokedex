@@ -58,32 +58,29 @@
 <div class="_list-frame">
   
   <mat-paginator
-  [length]="898"
-  [pageSize]="20"
-  [pageSizeOptions]=""
-  (page)="pageEvent = paginatorNext($event)">
+  [length]="length"
+  [pageSize]="pageSize"
+  (page)="onPage($event)">
 
 </mat-paginator>
  
-
+<!--    (mouseenter)="onHoverThumbnail(r.name)" -->
 
   <mat-action-list>
-    <mat-list-item class="example-box" *ngFor="let p of pokemons"
-    (click)="onClickDetails(p.name)"
-    (mouseenter)="onHoverThumbnail(p.name)">
-      <img [src]="p.sprites.thumbnail" style="height: 45px">
+    <mat-list-item class="example-box" *ngFor="let r of results"
+    (click)="onClickDetails(r.name)">
       <mat-divider></mat-divider>
 
       <mat-list-item>
         <div class="_pokemon-name-font">
           <div style="text-transform:capitalize">
-            {{p.name}}
+            {{r.name}}
           </div>
         </div>
       </mat-list-item>
       <div class="_pokemon-name-font">
         <div style="text-transform:capitalize">
-          {{p.order}}
+          {{r.id}}
         </div>
       </div>
     </mat-list-item>

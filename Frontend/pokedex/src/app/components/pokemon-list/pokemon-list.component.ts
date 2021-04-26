@@ -6,7 +6,6 @@ import { concat, forkJoin, Subscription } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { Pokemon, PokemonResults, Result } from "src/app/models/pokemon/pokemon";
 import { PokemonService } from "src/app/services/pokemon-service";
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { PageEvent } from "@angular/material/paginator";
 
 
@@ -21,7 +20,9 @@ export class PokemonListComponent implements OnInit {
 
 
     searchText: string;
-    listOffset: number = 0
+    offset = 0
+    length = 1118
+    pageSize = 20
     pageEvent: PageEvent
 
     @Input() pokemon: Pokemon
@@ -39,34 +40,45 @@ export class PokemonListComponent implements OnInit {
 
     ngOnInit(): void {
 
-
-        const pokemonDetails$ = this.pokemonService.getAllPokemon(this.listOffset).pipe(
-            switchMap(r => {
+this.subscription.add(
+        this.pokemonService.getAllPokemon(this.offset).subscribe(
+            (r) => {
                 this.results = r.results
-                console.log("in switch map AAAAAAAAAAAAAAA: ", r)
-                const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
-                return forkJoin(pokemonDetails)
+                console.log("results: ", r)
+          
             })
-        )
-
-        this.subscription.add(
-            pokemonDetails$.subscribe(
-                r => {
-                    console.log("ZZZZZZZZZZZ: ", r)
-                    this.pokemons = r
-                }
-            )
-        )
+        )    
     }
-
-
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe()
     }
+   
+    public onPage(event?: PageEvent) {
+        if(event.pageIndex>event.previousPageIndex){
+            console.log("event's current and previous page indecis: ", event.pageIndex, event.previousPageIndex)
+            this.offset = this.offset + 20
+            this.subscription.add(
+                this.pokemonService.getAllPokemon(this.offset).subscribe(
+                    (r) => {
+                        this.results = r.results
+                        console.log("results: ", r)
+                    })
+                )      
+        } else {
+            console.log("event's current and previous page indecis: ", event.pageIndex, event.previousPageIndex)
+            this.offset = this.offset - 20
+            this.subscription.add(
+                this.pokemonService.getAllPokemon(this.offset).subscribe(
+                    (r) => {
+                        this.results = r.results
+                        console.log("results: ", r)
+                    })
+                )   
+        } 
+    }
 
-
-
+      
     public onClickDetails(id: string): void {
         console.log("I HAVE BEEN CLICKED")
         this.router.navigate(['pokemon/' + id])
@@ -74,62 +86,48 @@ export class PokemonListComponent implements OnInit {
     }
 
 
-    public paginatorNext(event?: PageEvent): PageEvent {
-        const page = event.pageIndex+1
-        console.log("paginator index: ", page )
-        if(event.pageIndex>event.previousPageIndex){
-       
-         this.onClickNext()    
-        
-        } else {
-            this.onClickPrevious()
-        }
-        return event
-    }
-
-
     public onClickNext(): void {
-        this.listOffset = this.listOffset + 20
-        console.log("listOffset :" + this.listOffset)
-    const pokemonDetails$ = this.pokemonService.getAllPokemon(this.listOffset).pipe(
-        switchMap(r => {
-            this.results = r.results
-            console.log("in switch map AAAAAAAAAAAAAAA: ", r)
-            const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
-            return forkJoin(pokemonDetails)
-        })
-    )
+ //       this.listOffset = this.listOffset + 20
+ //       console.log("listOffset :" + this.listOffset)
+ //   const pokemonDetails$ = this.pokemonService.getAllPokemon().pipe(
+ //       switchMap(r => {
+  //          this.results = r.results
+  //          console.log("in switch map AAAAAAAAAAAAAAA: ", r)
+   //         const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
+  //          return forkJoin(pokemonDetails)
+ //       })
+   // )
 
     this.subscription.add(
-        pokemonDetails$.subscribe(
+ //       pokemonDetails$.subscribe(
             r => {
                 console.log("ZZZZZZZZZZZ: ", r)
                 this.pokemons = r
             }
         )
-    )
+ //   )
 }
 
 public onClickPrevious(): void {
-    this.listOffset = this.listOffset - 20
-    console.log("listOffset :" + this.listOffset)
-const pokemonDetails$ = this.pokemonService.getAllPokemon(this.listOffset).pipe(
-    switchMap(r => {
-        this.results = r.results
-        console.log("in switch map AAAAAAAAAAAAAAA: ", r)
-        const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
-        return forkJoin(pokemonDetails)
-    })
-)
+ //   this.listOffset = this.listOffset - 20
+ //   console.log("listOffset :" + this.listOffset)
+//const pokemonDetails$ = this.pokemonService.getAllPokemon().pipe(
+ //   switchMap(r => {
+//        this.results = r.results
+//        console.log("in switch map AAAAAAAAAAAAAAA: ", r)
+ //       const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
+//        return forkJoin(pokemonDetails)
+ //   })
+//)
 
 this.subscription.add(
-    pokemonDetails$.subscribe(
+ //   pokemonDetails$.subscribe(
         r => {
             console.log("ZZZZZZZZZZZ: ", r)
             this.pokemons = r
         }
     )
-)
+//)
 }
 
 
@@ -183,9 +181,9 @@ this.subscription.add(
         }
     }
 */
-    public onHoverThumbnail(name: string): void {
-        console.log("I am hovered", name)
-    }
+//    public onHoverThumbnail(name: string): void {
+//        console.log("I am hovered", name)
+ //   }
 
 
 }
