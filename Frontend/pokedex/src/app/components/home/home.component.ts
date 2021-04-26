@@ -1,3 +1,4 @@
+import { CdkDragDrop } from "@angular/cdk/drag-drop";
 import { EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Component } from "@angular/core";
 import { Pokemon } from "src/app/models/pokemon/pokemon";
@@ -12,6 +13,7 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
   export class HomeComponent implements OnInit, OnDestroy {
 
 @Input() pokemon: Pokemon
+  router: any;
 
   
 
@@ -22,6 +24,7 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
   ngOnDestroy(): void {
   //  this.subscription.unsubscribe()
       }
-
+  
+  
 
     }

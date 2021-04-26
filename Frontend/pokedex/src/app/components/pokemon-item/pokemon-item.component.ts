@@ -1,3 +1,4 @@
+import { CdkDragDrop } from "@angular/cdk/drag-drop";
 import { EventEmitter, Input, Output } from "@angular/core";
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
@@ -23,18 +24,14 @@ import { PokemonService } from "src/app/services/pokemon-service";
     constructor(
         private pokemonService: PokemonService,
         private router: Router, 
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+
         ){}
   
     ngOnInit(): void {
 
         this.subscription.add(
-  //          this.pokemonService.getPokemonByUrl(this.pokemonName).subscribe(
-  //              (p) => {
-  //                  this.pokemon = p,
-  //                  console.log ("pokemon ", p)
-  //              }
-  //          )
+ 
         )
     }
 
@@ -42,7 +39,4 @@ import { PokemonService } from "src/app/services/pokemon-service";
         this.subscription.unsubscribe()
           }
 
-
-  
-     
   }

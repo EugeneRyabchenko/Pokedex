@@ -12,7 +12,7 @@ const routes: Routes = [
       { path: 'pokemon/:id', component: PokemonDetailsComponent},
  //   { path: 'user-registration', component: UserRegistrationComponent},
  //   { path: 'training', component: ProgrammingTraining},
-    { path: '**', redirectTo: 'pokemon'}
+    { path: '**', redirectTo: ''}
     ]
   },
 ]

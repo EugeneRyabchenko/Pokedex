@@ -6,3 +6,57 @@
     display: block;
     color: red;
   }
+
+  ._list-frame {
+    background: rgba(255,255,255,0.7);
+    position: absolute;
+    margin: 15px;
+    margin-left: 33%;
+    border: 3px solid black;
+    height: 94%;
+    width: 34%;
+    min-width: 34%;
+    min-height: 94%;
+    
+    }
+
+  mat-action-list {
+    height: 85%;
+    width: 100%;
+  
+   position: relative;
+    overflow: scroll;
+    min-width: 230px;
+    min-height: 230px
+
+}
+
+
+mat-action-list::-webkit-scrollbar {
+  display: none
+  }
+
+  .sticky-bottom {
+    padding-left: 8px;
+    top: 5px;
+    position: sticky;
+    background: rgba(87, 87, 87, 0.3);
+  
+  }
+
+
+  ._pokemon-name-font {
+    font-size: 20px;
+    color: #ffcc00;
+    -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: #0067b4;
+  
+  }
+
+  mat-paginator {
+    min-width: 60%;
+    font-size: 16px
+  }
+
+
+

@@ -1,8 +1,8 @@
-.hide {
-    display: none;
-  }
-  
-  .myDIV:hover + .hide {
-    display: block;
-    color: red;
-  }
+
+
+.pokedex {
+    width: 10%;
+    height: 10%;
+    position: relative;
+    
+}

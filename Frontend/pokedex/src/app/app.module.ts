@@ -14,6 +14,8 @@ import { PokemonService } from './services/pokemon-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {MatListModule} from '@angular/material/list';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule
+
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]

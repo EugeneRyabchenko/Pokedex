@@ -34,7 +34,7 @@
 
 
 -->
-
+<!--
 
 <button mat-button>CLick me!</button>
 
@@ -51,34 +51,59 @@
   </button>
 </div>
 
+-->
 
 
-<mat-action-list>
-  <mat-list-item *ngFor="let p of pokemons" (click)="onClickDetails(p.name)" >
-   
-    <div class="myDIV">
-    <img matListAvatar [src]="p.sprites.other.officalArtwork.frontDefault" >
 
-</div>
-{{p.name}} 
+<div class="_list-frame">
+  
+  <mat-paginator
+  [length]="898"
+  [pageSize]="20"
+  [pageSizeOptions]=""
+  (page)="pageEvent = paginatorNext($event)">
 
-  <div class="hide">
-     <img [src]="p.sprites.other.officalArtwork.frontDefault"> 
+</mat-paginator>
+ 
+
+
+  <mat-action-list>
+    <mat-list-item class="example-box" *ngFor="let p of pokemons"
+    (click)="onClickDetails(p.name)"
+    (mouseenter)="onHoverThumbnail(p.name)">
+      <img [src]="p.sprites.thumbnail" style="height: 45px">
+      <mat-divider></mat-divider>
+
+      <mat-list-item>
+        <div class="_pokemon-name-font">
+          <div style="text-transform:capitalize">
+            {{p.name}}
+          </div>
+        </div>
+      </mat-list-item>
+      <div class="_pokemon-name-font">
+        <div style="text-transform:capitalize">
+          {{p.order}}
+        </div>
+      </div>
+    </mat-list-item>
+
+  </mat-action-list>
   
 </div>
-  </mat-list-item>
-</mat-action-list>
 
 
 
+
+<!--
 <div class="myDIV">
-  <span> <img matListAvatar [src]="pokemon?.sprites.thumbnail">  </span>
+  <span> <img matListAvatar [src]="pokemon?.sprites.thumbnail"> </span>
 </div>
 <div class="hide">
   <h3> <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>
 </div>
-
- <!--
+ -->
+<!--
 <mat-action-list>
   <mat-list-item *ngFor="let r of results">
     <app-pokemon-item [pokemonName]="r.name" mat-list-item (click)="onClickDetails(r.name)">

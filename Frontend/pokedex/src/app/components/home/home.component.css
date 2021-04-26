@@ -1,0 +1,19 @@
+._column {
+      flex: 50%;
+    width: 50%;
+    padding: 10px;
+ /*   height: 300px;  Should be removed. Only for demonstration */
+  }
+
+  ._row {
+    display: flex;
+  }
+
+  .dropzone {
+    width: 200px;
+    position: relative;
+    height: 20px;
+    background: blueviolet;
+    margin-bottom: 100px;
+    padding: 100px;
+  }
