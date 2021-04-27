@@ -1,57 +1,19 @@
-<!--
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-image: url("/assets/pallet_town.png");
+      background-size: cover;
+  }
+</style>
 
-<div class="container">
-    <h2 class="py-4">Pokemons</h2>
-  
-    <div class="form-group mb-4">
-      <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search">
-    </div>
-  
-    <table class="table" *ngIf="(results | filter: searchText).length > 0; else noResults">
-      <colgroup>
-        <col width="5%">
-        <col width="*">
-      </colgroup>
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Brand</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let result of results | filter: searchText; let i = index">
-          <th scope="row">{{i + 1}}</th>
-          <td (click)="onClickDetails(result.id)">{{result.name}}</td>
-          <td>{{result.url}}</td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <ng-template #noResults>
-      <p>No results found for "{{searchText}}".</p>
-    </ng-template>
-  </div>
+<div class="bg">
+    
 
 
--->
-<!--
-
-<button mat-button>CLick me!</button>
-
-
-<div (click)="onClickPrevious()">
-  <button type="button" class="btn btn-danger">
-    <div class="font-weight-bold mb-0">PREVIOUS</div>
-  </button>
-</div>
-
-<div (click)="onClickNext()">
-  <button type="button" class="btn btn-success">
-    <div class="font-weight-bold mb-0">NEXT</div>
-  </button>
-</div>
-
--->
 
 
 
@@ -88,60 +50,4 @@
   </mat-action-list>
   
 </div>
-
-
-
-
-<!--
-<div class="myDIV">
-  <span> <img matListAvatar [src]="pokemon?.sprites.thumbnail"> </span>
 </div>
-<div class="hide">
-  <h3> <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>
-</div>
- -->
-<!--
-<mat-action-list>
-  <mat-list-item *ngFor="let r of results">
-    <app-pokemon-item [pokemonName]="r.name" mat-list-item (click)="onClickDetails(r.name)">
-          (click)="onClickDetails(pokemon.name)">{{pokemon.name}} 
-    </app-pokemon-item>
-  </mat-list-item>
-</mat-action-list>
-
- -->
-<!--
-    <div>
-       <h3> Order: {{pokemon?.order}} </h3>
-    </div>
-    <div class="col-3">
-        <h3> Name: {{pokemon?.name}} </h3>
-    </div>
-    <div class="col-3">
-        <h3> Abilities:
-            <ng-container *ngFor="let a of pokemon?.abilities">
-                {{a.ability.name}}
-            </ng-container>
-        </h3>
-        <h3> Types:
-            <ng-container *ngFor="let t of pokemon?.types">
-                {{t.type.name}}
-            </ng-container>
-        </h3>
-        <h3> Stats:
-            <ng-container *ngFor="let s of pokemon?.stats">
-                {{s.stat.name}} {{s.statValue}}
-            </ng-container>
-        </h3>
-        <h3> Moves:
-            <ng-container *ngFor="let m of pokemon?.moves">
-                {{m.move.name}}
-            </ng-container>
-        </h3>
-
-    </div>
-    <div class="col-3">
-        <h3> Sprite: <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault"> </h3>
-    </div>
-
--->

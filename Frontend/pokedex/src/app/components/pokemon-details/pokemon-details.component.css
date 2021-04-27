@@ -1,0 +1,139 @@
+.pokemon-details-component-card {
+    max-width: auto;
+    min-height: 50%;
+    margin: 25px;
+    background: rgba(255,255,255,0.8);
+    height: 85%;
+   
+    
+}
+
+._detailsLoadingPokeball {
+  position: relative;
+  display: block;
+  padding-left: 37%;
+  padding-top: 11%;
+  height: 45%;
+}
+
+.title-card {
+  font-size: 20px;
+    font-size: 3.0vw;
+}
+
+.picture-card {
+    max-width: 20%;
+    min-height: 195px;
+    background: #F2F2F2;
+    position: relative;
+    display: block;
+    float: left;
+    margin: 0 .78125% 10px;
+  }
+
+
+  .stats-card {
+    max-width: 250px;
+    min-height: 57.5vw;
+    max-height: 100px;
+    min-height: 27.5vw;
+    
+    background: #F2F2F2;
+    position: relative;
+    display: block;
+    float: left;
+  
+    margin: 0 .78125% 50px;
+  }
+
+  .abilities-card {
+    max-width: 890px;
+    min-width: 380px;
+    max-height: 400px;
+    min-height: 300px;
+    
+    background: #F2F2F2;
+    position: relative;
+    overflow-y: scroll;
+    display: block;
+  
+    margin: 0 .78125% 50px;
+  }
+
+
+.types {
+  background: #c4c4c4;
+  border-radius: 9px;
+  position: relative;
+  display: block;
+    float: left;
+   padding: 4px;
+    text-align: center;
+    margin: 0.1em;
+    font-size: 1.70vw;
+    width: 35%;
+}
+
+._normal-type{
+  background: #a8a878;
+}
+._fighting-type{
+  background: #c03028;
+}
+._flying-type{
+  background: #a890f0;
+}
+._poison-type{
+  background: #a040a0;
+}
+._ground-type{
+  background: #e0c068;
+}
+._rock-type{
+  background: #b8a038;
+}
+._bug-type{
+  background: #a8b820;
+}
+._ghost-type{
+  background: #705898;
+}
+._steel-type{
+  background: #b8b8d0;
+}
+._fire-type{
+  background: #f08030;
+}
+._water-type{
+  background: #6890f0;
+}
+._grass-type{
+  background: #78c850;
+}
+._electric-type{
+  background: #f8d030;
+}
+._psychic-type{
+  background: #f85888;
+}
+._ice-type{
+  background: #98d8d8;
+}
+._dragon-type{
+  background: #7038f8;
+}
+._dark-type{
+  background: #705848;
+}
+._fairy-type{
+  background: #f0b6bc;
+}
+._unknown-type{
+  background: #b8b8d0;
+}
+._shadow-type{
+  background: #705848;
+}
+
+
+

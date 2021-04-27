@@ -92,11 +92,15 @@ export class Ability {
 
 export class TypeName {
     public name: String //<-- actual type name
+    public url: String
+    public typeId: number
 
     public static fromJson(json: any): TypeName {
         
         const td: TypeName = {
-            name: json.name
+            url: json.url,
+            name: json.name,
+            typeId: +json.url.split("/")[6]
         }
         return td
     }
