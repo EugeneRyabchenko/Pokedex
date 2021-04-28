@@ -17,7 +17,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar'
-import {MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -40,8 +40,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatPaginatorModule,
     MatCardModule,
     MatProgressBarModule,
-    MatGridListModule,
-    NgbModule
+    NgbModule,
+    FlexLayoutModule 
 
   ],
   providers: [PokemonService],

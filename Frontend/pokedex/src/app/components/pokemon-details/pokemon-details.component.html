@@ -24,59 +24,113 @@
 
         <ng-container *ngIf="!detailsLoading">
 
+            <div fxLayout="row wrap" fxLayoutGap="10px grid">
+                <!--THE ONE BIGGEST ROW FOR THE WHOLE CONTAINER-->
 
-            <div class="card-positions">
-                <mat-card class="picture-card mat-elevation-z6">
+                <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%">
+                    <!--LEFT 33% column (name, pic, types, abilities)-->
 
-                    <mat-card-title style="text-transform:capitalize" class="title-card">{{pokemon?.name}}
-                    </mat-card-title>
-                    <img mat-card-image [src]="pokemon?.sprites.other.officalArtwork.frontDefault">
+                    <div fxLayout="row wrap" style="margin: 0px 0px 10px 0px">
+                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+                            <mat-card class="mat-elevation-z6" class="picture-card">
+                                <div fxLayout="row wrap">
+                                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
-                    <ng-container *ngFor="let t of pokemon?.types" class="types">
-                        <div style="text-transform:capitalize">
-                         
-                           <div class="types" [class]="typeToCssClass[t.type.typeId]">  
-                                {{t.type.name}}
-                            </div>
+                                        <div fxLayout="row wrap">
+                                            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+                                                <div class="pokemon-name">{{pokemon?.name}}</div>
+                                            </div>
+                                        </div>
 
+                                        <div fxLayout="row wrap">
+                                            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%"
+                                                style="display: flex; justify-content: center">
+                                                <img class="pokemon-picture" mat-card-image
+                                                    [src]="pokemon?.sprites.other.officalArtwork.frontDefault">
+                                            </div>
+                                        </div>
 
-                         </div>    
-                    </ng-container>
+                                        <div fxLayout="row wrap"
+                                            style="flex-flow: row wrap; box-sizing: border-box; display: flex; flex-wrap: nowrap; justify-content: space-around">
+                                            <ng-container *ngFor="let t of pokemon?.types">
+                                                <div fxFlex="40%" fxFlex.xs="50%" fxFlex.sm="50%" class="type">
 
+                                                    <div [class]="typeToCssClass[t.type.typeId]" style="border-radius: 9px;">
+                                                        {{t.type.name}}
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
 
-
-                </mat-card>
-
-
-
-                <mat-card class="stats-card mat-elevation-z6">
-
-                    <ng-container *ngFor="let s of pokemon?.stats">
-
-                        <div style="text-transform:capitalize">
-                            {{s.stat.name}}: {{s.statValue}}
+                                </div>
+                            </mat-card>
                         </div>
-                        <mat-progress-bar [value]=s.statValue*statProgressBar>
-                            {{s.statValue}}
-                        </mat-progress-bar>
-                    </ng-container>
-                </mat-card>
-                <mat-card class="abilities-card mat-elevation-z6">
-                    <h3> Abilities:
-                        <ng-container *ngFor="let a of pokemon?.abilities">
-                            {{a.ability.name}}
-                        </ng-container>
-                    </h3>
+                    </div>
+                    <div fxLayout="row wrap">
+                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+                            <mat-card class="mat-elevation-z6" class="abilities-card">
+                                <div fxLayout="row wrap">
+                                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%"
+                                        style="display: flex; justify-content: center">
+                                        <div class="abilites-title"> Abilities:</div>
+                                    </div>
+                                </div>
+                                <div fxLayout="row wrap"
+                                    style="flex-flow: row wrap; box-sizing: border-box; display: flex; flex-wrap: nowrap; justify-content: space-around">
 
-                    <h3> Moves:
-                        <ng-container *ngFor="let m of pokemon?.moves">
-                            {{m.move.name}}
-                        </ng-container>
-                    </h3>
+                                    <ng-container *ngFor="let a of pokemon?.abilities">
+                                        <div fxFlex="40%" fxFlex.xs="50%" fxFlex.sm="50%" class="ability">
+                                            {{a.ability.name}}
+                                        </div>
+                                    </ng-container>
 
-                </mat-card>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div fxFlex="67%" fxFlex.xs="100%" fxFlex.sm="67%">
+                    <!--RIGHT 67% column (Stats, moves)-->
+
+                    <div fxLayout="row wrap" fxLayoutGap="10px grid">
+                        <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="60%">
+                            <mat-card class="mat-elevation-z6">
+                                <ng-container *ngFor="let s of pokemon?.stats">
+                                    <div style="text-transform:capitalize">
+                                        {{s.stat.name}}: {{s.statValue}}
+                                    </div>
+                                    <mat-progress-bar [value]=s.statValue*statProgressBar>
+                                        {{s.statValue}}
+                                    </mat-progress-bar>
+                                </ng-container>
+                            </mat-card>
+                        </div>
+
+                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+                            <mat-card class="mat-elevation-z6" class="moves-card">
+                                <h3> Moves:
+                                    <ng-container *ngFor="let m of pokemon?.moves">
+                                        {{m.move.name}}
+                                    </ng-container>
+                                </h3>
+                            </mat-card>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--
+        </ng-container>
+    </mat-card>
+</div>
+
+
+<!--
 
             <div (click)="onClickBackToList()">
                 <button type="button" class="btn btn-success">
@@ -86,13 +140,4 @@
 
 
             <div class="col-6">
-                <h3> Order: {{pokemon?.order}} </h3>
-
-            </div>
--->
-        </ng-container>
-    </mat-card>
-
-
-
-</div>
+                <h3> Order: {{pokemon?.order}} </h3>-->
