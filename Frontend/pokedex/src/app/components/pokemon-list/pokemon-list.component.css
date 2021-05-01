@@ -11,10 +11,10 @@
     background: rgba(255,255,255,0.8);
     position: absolute;
     margin: 15px;
-    margin-left: 33%;
+    margin-left: 32%;
     border: 3px solid black;
     height: 94%;
-    width: 34%;
+    width: 36%;
     min-width: 34%;
     min-height: 94%;
     
@@ -22,27 +22,17 @@
 
   mat-action-list {
     height: 85%;
+   
     width: 100%;
   
    position: relative;
-    overflow: scroll;
+    overflow-y: auto;
     min-width: 230px;
     min-height: 230px
 
 }
 
 
-mat-action-list::-webkit-scrollbar {
-  display: none
-  }
-
-  .sticky-bottom {
-    padding-left: 8px;
-    top: 5px;
-    position: sticky;
-    background: rgba(87, 87, 87, 0.3);
-  
-  }
 
 
   ._pokemon-name-font {
