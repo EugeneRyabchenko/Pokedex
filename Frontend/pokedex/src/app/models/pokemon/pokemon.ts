@@ -11,6 +11,8 @@ export class Pokemon {
     public stats: Stat[]
     public moves: Move[]
     public url: String
+ 
+    
 
     public static fromJson(json: any): Pokemon {
         
@@ -22,12 +24,78 @@ export class Pokemon {
             order: json.order,
             stats: json.stats?.map((s) => Stat.fromJson(s)),
             moves: json.moves?.map((m) => Move.fromJson(m)),
-            url: json.url
+            url: json.url,
+            
         }
         return p
     }
 }
 
+export class PokemonSpecies {
+    public evolution_chain: EvolutionChainUrl
+
+    public static fromJson(json: any): PokemonSpecies {
+
+        const ps: PokemonSpecies = {
+            evolution_chain: json.evolution_chain
+           
+        }
+        return ps
+    }
+}
+
+export class EvolutionChainUrl {
+    public url: string
+
+    public static fromJson(json: any): EvolutionChainUrl {
+
+        const ecu: EvolutionChainUrl = {
+            url: json.url
+           
+        }
+        return ecu
+    }
+}
+
+export class EvolutionChain {
+    public id: number
+    public chain: Chain
+
+    public static fromJson(json: any): EvolutionChain {
+
+        const ec: EvolutionChain = {
+            id: json.id,
+            chain: json.chain
+        }
+        return ec
+    }
+
+    public static toNameList (c: Chain): string[] {
+        
+            const e = c.evolves_to.map((e) => EvolutionChain.toNameList(e))
+            const fe = ((e as any).flat() as string[])
+            const p = [c.species.name, ...fe]
+            return p
+        
+    }
+}
+
+export class Chain{
+    public species: Species
+    public evolves_to: Chain[]
+}
+
+export class Species{
+    public name: string  //<-- actual species name
+
+    public static fromJson(json: any): Species {
+
+        const s: Species = {
+            name: json.name
+        }
+        return s
+    }
+}
 
 export class OfficialArtwork {
     public frontDefault: String  //<-- actual artwork URL

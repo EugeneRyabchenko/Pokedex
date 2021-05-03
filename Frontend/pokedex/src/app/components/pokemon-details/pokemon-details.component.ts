@@ -4,7 +4,7 @@ import { OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { finalize, switchMap } from "rxjs/operators";
-import { Pokemon, Stat } from "src/app/models/pokemon/pokemon";
+import { EvolutionChain, Pokemon, Stat } from "src/app/models/pokemon/pokemon";
 import { typeToCssClass } from "src/app/models/pokemon/pokemon-types";
 import { PokemonService } from "src/app/services/pokemon-service";
 
@@ -22,6 +22,8 @@ import { PokemonService } from "src/app/services/pokemon-service";
     typeIndices: number[]
     typeToCssClass = typeToCssClass
     detailsLoading: Boolean = false
+    evolutionChainUrlId: string
+    evolutionList: string[]
     
 
     @Output() public clickPokemonItem: EventEmitter<Pokemon> = new EventEmitter<Pokemon>()
@@ -55,9 +57,45 @@ import { PokemonService } from "src/app/services/pokemon-service";
                     this.statProgressBar = this.statProgressBar*100/this.maxStatEver
                     this.typeIndices = p.types.map(t => +t.type.url.split("/")[6])
                     console.log("pokemon type indeces: " , p.types[0].type.typeId)
+                   
+                    this.subscription.add(
+                        this.pokemonService.getEvolutionChainId(id).pipe(
+                            finalize(() => {
+                                this.detailsLoading = false
+                            })
+                        ).subscribe(
+                            (eci) => {
+                                this.evolutionChainUrlId = eci.evolution_chain.url.split("/")[6]
+                                console.log("chain url ID: ", this.evolutionChainUrlId)
+                           
+                                this.subscription.add(
+                                    this.pokemonService.getEvolutionChainById(this.evolutionChainUrlId).pipe(
+                                        finalize(() => {
+                                            this.detailsLoading = false
+                                        })
+                                    ).subscribe(
+                                        (ec) => {
+                                            console.log ("evolution chain ", ec)
+                                            this.evolutionList = EvolutionChain.toNameList(ec.chain)
+                                            console.log("list AAAAAAAA: ", this.evolutionList)           
+                                        }
+                                    )
+                                )  
+                            }
+                        )
+                    )
                 }
             )
         )
+
+       
+
+
+       
+
+
+
+
 
         this.clickPokemonItem.emit(this.pokemon)
         console.log("details of this pokemon: " + this.pokemon)
