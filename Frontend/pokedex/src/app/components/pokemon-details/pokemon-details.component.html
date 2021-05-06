@@ -15,7 +15,7 @@
 
                 <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
-                    <div fxLayout="row wrap" style=" padding-top: 15px; padding-bottom: 55px;">
+                    <div fxLayout="row wrap" style=" padding-top: 25px; padding-bottom: 55px;">
                         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex;
                                                 width: inherit;
                                                 justify-content: center;
@@ -24,17 +24,19 @@
                                                 font-weight: bolder;
                                                 font-family:Arial, Helvetica, sans-serif;      
                                                 padding-top: 5px;
-                                                padding-bottom: 5px;">
+                                                padding-bottom: 5px;
+                                                
+                                              ">
                             {{pokemon?.name}} <div style="color: #a4acaf; padding-left: 5px;">
-                                <div *ngIf="pokemon?.order > 0 && pokemon?.order < 10"> #00{{pokemon?.order}}</div>
-                                <div *ngIf="pokemon?.order > 10 && pokemon?.order < 100"> #0{{pokemon?.order}}</div>
-                                <div *ngIf="pokemon?.order > 100"> #{{pokemon?.order}}</div>
+                                <div *ngIf="pokemon?.order > 0 && pokemon?.order <= 9"> #00{{pokemon?.order}}</div>
+                                <div *ngIf="pokemon?.order >= 10 && pokemon?.order <= 99"> #0{{pokemon?.order}}</div>
+                                <div *ngIf="pokemon?.order >= 100"> #{{pokemon?.order}}</div>
                             </div>
                         </div>
                     </div>
 
 
-                    <div fxLayout="row wrap">
+                    <div fxLayout="row wrap" style="padding-top: 10px; padding-bottom: 5px;">
 
                         <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
                             <div fxLayout="row wrap" style=" 
@@ -48,16 +50,20 @@
 
 
 
-                                    <div fxLayout="row wrap" style="display: flex;
+                                    <div fxLayout="row wrap"  style="display: flex;
                                 height: inherit; width: 100%;
                                 align-items: center;
-                                justify-content: center
+                                justify-content: center;
+                                
                                 ">
+                                     
                                         <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault" style="
-                                       
+                                        margin-bottom: 10px;
                                         width: inherit;
                                         background: #f2f2f2;
+                                        box-shadow: 2px 2px 7px;
                                         border-radius: 15px;">
+                                        
                                     </div>
 
 
@@ -73,14 +79,17 @@
                             justify-content: center;
                             ">
                                 <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-left: 2.5px;
-            margin-right: 2.5px;">
+            margin-right: 2.5px;
+            align-items:center;
+           ">
 
                                     <div fxLayout="row wrap" style="
                            width:inherit;
                             background: #30a7d7;
                             border-radius: 15px;
-                            margin-top: 5px;
-                            margin-bottom: 5px
+                            box-shadow: 2px 2px 7px;
+                           
+                            margin-bottom: 10px
                             ">
 
                                         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
@@ -177,14 +186,11 @@
                             width: inherit;
                                    height: inherit;
                           
-                           margin-bottom: 2.5px;
-                           margin-top: 2.5px;
-                            
+                          
+                           margin-top: 2.5px;                         
                             background: #a4a4a4;
-                           
-                           
-                            
-                            border-radius: 15px;">
+                            border-radius: 15px;
+                            box-shadow: 2px 2px 7px;">
 
                                         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="
                              padding-left: 10px;
@@ -256,11 +262,13 @@
                                     width: 100%;                     
                                     display: flex;
                                    padding-top: 5px;
-                                   padding-bottom: 15px;">
+                                   padding-bottom: 15px;
+                                   ">
                                 <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
                                     <div style="overflow:auto;
                                        border-radius: 15px;
+                                       box-shadow: 2px 2px 7px;
                                        padding-bottom: 15px;
                                         background-image: url('/assets/evolutions_bg.png');
                                         background-size: cover;">
@@ -314,11 +322,11 @@
                                                 font-family:Verdana, Geneva, Tahoma, sans-serif;
                                                ">
                                                         {{l?.name}} <div style="color: #a4acaf; padding-left: 5px;">
-                                                            <div *ngIf="l?.order > 0 && l?.order < 10"> #00{{l?.order}}
+                                                            <div *ngIf="l?.order > 0 && l?.order <= 9"> #00{{l?.order}}
                                                             </div>
-                                                            <div *ngIf="l?.order > 10 && l?.order < 100"> #0{{l?.order}}
+                                                            <div *ngIf="l?.order >= 10 && l?.order <= 99"> #0{{l?.order}}
                                                             </div>
-                                                            <div *ngIf="l?.order > 100"> #{{l?.order}}</div>
+                                                            <div *ngIf="l?.order >= 100"> #{{l?.order}}</div>
                                                         </div>
                                                     </div>
                                                   
@@ -351,169 +359,98 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-        </ng-container>
-    </div>
-</div>
+                    <div fxLayout="row wrap" style="
+                    width:inherit;
+                     background: #30a7d7;
+                     border-radius: 15px;
+                     box-shadow: 2px 2px 7px;
+                    
+                     margin-bottom: 10px
+                     ">
 
+                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-   
-
-        <ng-container *ngIf="detailsLoading">
-            <img src="assets/pokeball_gif.gif" class="_detailsLoadingPokeball">
-        </ng-container>
-
-        <ng-container *ngIf="!detailsLoading">
-
-            <div fxLayout="row wrap" style="height: 97%" fxLayoutGap="10px grid">
-                THE ONE BIGGEST ROW FOR THE WHOLE CONTAINER
-
-                <div fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="35%" class="left-most-column ">
-                   LEFT 33% column (name, pic, types, abilities)
-
-                    <div fxLayout="row wrap" class="name-picture-types-row mat-elevation-z7">
-                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-
-
-                                                 <div fxLayout="row wrap" style="height: 10%" class="pokemon-name">
-                                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-                                        <div>{{pokemon?.name}}</div>
+                        <div fxLayout="row wrap" style="
+                        width: inherit;
+                       height: inherit;
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       padding-top: 5px;
+                       padding-bottom: 5px;">
+                                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex; 
+                              padding-left: 10px;
+                               align-items: center;
+                               font-weight: bolder;
+                               font-family:Verdana, Geneva, Tahoma, sans-serif;
+                               color: white;
+                               ">
+                                        Moves
                                     </div>
                                 </div>
- 
-                                <div fxLayout="row wrap">
-                                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%"
-                                        style="display: flex; justify-content: center; height: 100%;">
-                                       <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault" style=" max-width: 80%;">   
+
+                                <div fxLayout="row wrap" style="display: flex;
+                                height: inherit; 
+                                align-items: center;
+                                justify-content: space-around;
+                                text-transform:capitalize;
+                                font-weight: bolder;
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;">
+                      
+                            <ng-container *ngFor="let m of pokemon?.moves; let isLast=last">
+                                {{m.move.name}}{{isLast ? '' : ', '}}
+                            </ng-container>
+                      
                         </div>
+                
+                
                     </div>
-
-                    <div fxLayout="row wrap"
-                        style="flex-flow: row wrap; box-sizing: border-box; display: flex; flex-wrap: nowrap; justify-content: space-around; height: 7.5%">
-                                             <ng-container *ngFor="let t of pokemon?.types">
-                                        <div fxFlex="40%" fxFlex.xs="50%" fxFlex.sm="50%" class="type">
-
-                                            <div [class]="typeToCssClass[t.type.typeId]"
-                                                style="border-radius: 9px; height: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-content: space-around;">
-                                                {{t.type.name}}
-                                            </div>
-                                        </div>
-                                    </ng-container>   
-                    </div>
+                </div>
 
                 </div>
             </div>
 
-
-            <div fxLayout="row wrap" class="abilites-row mat-elevation-z7">
-                <mat-card class="mat-elevation-z6" class="abilities-card">
-                    <div fxLayout="row wrap">
-                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%"
-                            style="display: flex; justify-content: center">
-                            <div class="abilites-title"> Abilities:</div>
-                        </div>
-                    </div>
-                    <div fxLayout="row wrap"
-                        style="flex-flow: row wrap; box-sizing: border-box; display: flex; flex-wrap: nowrap; justify-content: space-around">
-
-                        <ng-container *ngFor="let a of pokemon?.abilities">
-                            <div fxFlex="40%" fxFlex.xs="50%" fxFlex.sm="50%" class="ability">
-                                {{a.ability.name}}
-                            </div>
-                        </ng-container>
-
-                    </div>
-                </mat-card>
-            </div>
-    </div>
-</div>
-</div>
-
-
-
-            <div fxFlex="67%" fxFlex.xs="100%" fxFlex.sm="67%">  
-RIGHT 67% column (Stats, moves)
-
-<div fxLayout="row wrap" fxLayoutGap="10px grid">
-    <div fxFlex="60%" fxFlex.xs="100%" fxFlex.sm="60%">
-
-        <ng-container *ngFor="let s of pokemon?.stats">
-            <div style="text-transform:capitalize">
-                {{s.stat.name}}: {{s.statValue}}
-            </div>
-            <mat-progress-bar [value]=s.statValue*statProgressBar>
-                {{s.statValue}}
-            </mat-progress-bar>
         </ng-container>
-
-    </div>
-
-    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-
-
-        <h3> Moves:
-            <ng-container *ngFor="let m of pokemon?.moves">
-                {{m.move.name}}
-            </ng-container>
-        </h3>
-
-
-
     </div>
 </div>
-</div>
-</ng-container>
-
-</div>
 
 
-</div>
 
 
-            <div (click)="onClickBackToList()">
-                <button type="button" class="btn btn-success">
-                    <div class="font-weight-bold mb-0">BACK TO LIST</div>
-                </button>
-            </div>
 
 
-            <div class="col-6">
-                <h3> Order: {{pokemon?.order}} </h3>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
