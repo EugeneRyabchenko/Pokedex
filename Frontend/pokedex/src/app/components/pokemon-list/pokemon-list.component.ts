@@ -87,16 +87,9 @@ this.subscription.add(
 
 
     public onClickNext(): void {
- //       this.listOffset = this.listOffset + 20
- //       console.log("listOffset :" + this.listOffset)
- //   const pokemonDetails$ = this.pokemonService.getAllPokemon().pipe(
- //       switchMap(r => {
-  //          this.results = r.results
-  //          console.log("in switch map AAAAAAAAAAAAAAA: ", r)
-   //         const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
-  //          return forkJoin(pokemonDetails)
- //       })
-   // )
+//       this.listOffset = this.listOffset + 20
+//        console.log("listOffset :" + this.listOffset)
+  
 
     this.subscription.add(
  //       pokemonDetails$.subscribe(

@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar'
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RoutingService } from './services/routing-service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule 
 
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, RoutingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
