@@ -1,53 +1,115 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   .bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-image: url("/assets/pallet_town.png");
-      background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("/assets/pallet_town.png");
+    background-size: cover;
   }
 </style>
 
 <div class="bg">
-    
+
+  <div fxLayout="row wrap" class="_main-whiteboard-main-row">
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%"
+    style="padding-right: 40px;
+    padding-left: 40px;">
 
 
 
 
+      <div class="_list-frame">
 
-<div class="_list-frame">
-  
-  <mat-paginator
-  [length]="length"
-  [pageSize]="pageSize"
-  (page)="onPage($event)">
+        <mat-paginator [length]="length" [pageSize]="pageSize" (page)="onPage($event)">
 
-</mat-paginator>
- 
-<!--    (mouseenter)="onHoverThumbnail(r.name)" -->
+        </mat-paginator>
 
-  <mat-action-list>
-    <mat-list-item class="example-box" *ngFor="let r of results"
-    (click)="onClickDetails(r.name)">
-      <mat-divider></mat-divider>
 
-      <mat-list-item>
-        <div class="_pokemon-name-font">
-          <div style="text-transform:capitalize">
-            {{r.name}}
-          </div>
+
+        <mat-action-list>
+          <mat-list-item class="example-box" *ngFor="let r of results" (click)="onClickDetails(r.name)">
+            <mat-divider></mat-divider>
+
+
+
+            <mat-list-item (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail(r.name)">
+              <div class="_pokemon-name-font">
+                <div style="text-transform:capitalize; font-size: 20px;">
+                  {{r.name}}
+                </div>
+              </div>
+            </mat-list-item>
+            <div class="_pokemon-name-font">
+              <div style="text-transform:capitalize">
+                {{r.id}}
+              </div>
+            </div>
+
+
+          </mat-list-item>
+
+
+
+        </mat-action-list>
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+      <div fxLayout="row wrap" style="display: flex;
+      align-items: center;
+      height: 30%;
+      ">
+        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex;
+        justify-content: center;">
+          <img src="assets/pokemon_logo.png" style="max-width: 450px;
+          padding-top: 2%;
+          padding-bottom: 2%;">
         </div>
-      </mat-list-item>
-      <div class="_pokemon-name-font">
-        <div style="text-transform:capitalize">
-          {{r.id}}
+
+      </div>
+
+      <div fxLayout="row wrap" style="display: flex;
+     height: 70%;
+     ">
+        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%"  style="display: flex;
+        justify-content: center;
+        align-items:baseline;
+        ">
+          <div style="height: 100%;
+         position: relative;">
+          
+         
+
+
+          <div style="min-width: 365px;
+          max-height: 200px;
+        padding-left: 50px;
+        padding-top: 70px;
+        transform: rotate(-7deg);
+        position:absolute;">
+        
+            <app-pokemon-preview *ngIf="pokemonPreviewComponentIsVisible==true" [name]="pokemonPreviewName">
+            </app-pokemon-preview>
+          </div>
+
+          <img src="assets/pokedex_preview.png" style="height: inherit;
+          width: inherit;">
+
+
+        </div>
+
         </div>
       </div>
-    </mat-list-item>
-
-  </mat-action-list>
-  
-</div>
-</div>
+    </div>

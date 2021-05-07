@@ -24,6 +24,7 @@ import { PokemonTypeAbilitiesComponent } from './components/pokemon-details/poke
 import { PokemonStatsComponent } from './components/pokemon-details/pokemon-stats/pokemon-stats.component';
 import { PokemonMovesComponent } from './components/pokemon-details/pokemon-moves/pokemon-moves.component';
 import { PokemonEvolutionsComponent } from './components/pokemon-details/pokemon-evolutions/pokemon-evolutions.component';
+import { PokemonPreviewComponent } from './components/pokemon-list/pokemon-preview/pokemon-preview.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PokemonEvolutionsComponent } from './components/pokemon-details/pokemon
     PokemonTypeAbilitiesComponent,
     PokemonStatsComponent,
     PokemonMovesComponent,
-    PokemonEvolutionsComponent
+    PokemonEvolutionsComponent,
+    PokemonPreviewComponent
   ],
   imports: [
     BrowserModule,

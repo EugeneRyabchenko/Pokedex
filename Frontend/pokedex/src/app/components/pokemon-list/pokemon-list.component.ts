@@ -24,6 +24,8 @@ export class PokemonListComponent implements OnInit {
     length = 1118
     pageSize = 20
     pageEvent: PageEvent
+    pokemonPreviewComponentIsVisible = false
+    pokemonPreviewName = ""
 
     @Input() pokemon: Pokemon
     @Input() results: Result[]
@@ -45,7 +47,7 @@ this.subscription.add(
             (r) => {
                 this.results = r.results
                 console.log("results: ", r)
-          
+               
             })
         )    
     }
@@ -63,6 +65,12 @@ this.subscription.add(
                     (r) => {
                         this.results = r.results
                         console.log("results: ", r)
+                        const longest = this.results.sort(
+                            function (a,b) {
+                                return b.name.length - a.name.length;
+                            }
+                          )[0]
+                          console.log("longest pokemon name: ", longest.name.length, " letters ", longest)
                     })
                 )      
         } else {
@@ -73,6 +81,12 @@ this.subscription.add(
                     (r) => {
                         this.results = r.results
                         console.log("results: ", r)
+                        const longest = this.results.sort(
+                            function (a,b) {
+                                return b.name.length - a.name.length;
+                            }
+                          )[0]
+                          console.log("longest pokemon name: ", longest.name.length, " letters ", longest)
                     })
                 )   
         } 
@@ -86,97 +100,17 @@ this.subscription.add(
     }
 
 
-    public onClickNext(): void {
-//       this.listOffset = this.listOffset + 20
-//        console.log("listOffset :" + this.listOffset)
-  
 
-    this.subscription.add(
- //       pokemonDetails$.subscribe(
-            r => {
-                console.log("ZZZZZZZZZZZ: ", r)
-                this.pokemons = r
-            }
-        )
- //   )
-}
-
-public onClickPrevious(): void {
- //   this.listOffset = this.listOffset - 20
- //   console.log("listOffset :" + this.listOffset)
-//const pokemonDetails$ = this.pokemonService.getAllPokemon().pipe(
- //   switchMap(r => {
-//        this.results = r.results
-//        console.log("in switch map AAAAAAAAAAAAAAA: ", r)
- //       const pokemonDetails = r.results.map((a) => this.pokemonService.getPokemonByUrl(a.name))
-//        return forkJoin(pokemonDetails)
- //   })
-//)
-
-this.subscription.add(
- //   pokemonDetails$.subscribe(
-        r => {
-            console.log("ZZZZZZZZZZZ: ", r)
-            this.pokemons = r
-        }
-    )
-//)
-}
-
-
-
-/*
-    public onClickNext(): void {
-        if (this.listOffset == 880) {
-            this.listOffset = 0
-            console.log("listOffset :" + this.listOffset)
-
-            this.pokemonService.getAllPokemon(this.listOffset).subscribe(
-                (r) => {
-                    this.results = r.results
-                    console.log("results ", r)
-                })
-            this.pokemonService.getAllPokemon(this.listOffset)
-        } else {
-            this.listOffset = this.listOffset + 20
-            console.log("listOffset :" + this.listOffset)
-
-            this.pokemonService.getAllPokemon(this.listOffset).subscribe(
-                (r) => {
-                    this.results = r.results
-                    console.log("results ", r)
-                })
-            this.pokemonService.getAllPokemon(this.listOffset)
-        }
+    public onHoverThumbnail(name: string): void {
+        console.log("I am hovered", name)
+        this.pokemonPreviewName = name
+        this.pokemonPreviewComponentIsVisible = true
     }
 
-    public onClickPrevious(): void {
-        if (this.listOffset == 0) {
-            this.listOffset = 880
-            console.log("listOffset :" + this.listOffset)
-
-            this.pokemonService.getAllPokemon(this.listOffset).subscribe(
-                (r) => {
-                    this.results = r.results
-                    console.log("results ", r)
-                })
-            this.pokemonService.getAllPokemon(this.listOffset)
-        } else {
-            this.listOffset = this.listOffset - 20
-            console.log("listOffset :" + this.listOffset)
-
-            this.pokemonService.getAllPokemon(this.listOffset).subscribe(
-                (r) => {
-                    this.results = r.results
-                    console.log("results ", r)
-                })
-            this.pokemonService.getAllPokemon(this.listOffset)
-        }
+    public onLeaveThumbnail(name: string): void {
+        console.log("I am not hovered", name)
+        this.pokemonPreviewName = ""
+        this.pokemonPreviewComponentIsVisible = false
     }
-*/
-//    public onHoverThumbnail(name: string): void {
-//        console.log("I am hovered", name)
- //   }
-
 
 }

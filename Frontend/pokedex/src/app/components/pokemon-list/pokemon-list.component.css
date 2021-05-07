@@ -1,47 +1,33 @@
-.hide {
-    display: none;
-  }
-  
-  .myDIV:hover + .hide {
-    display: block;
-    color: red;
-  }
-
-  ._list-frame {
-    background: rgba(255,255,255,0.9);
-    
-    margin: 15px;
-    margin-left: 32%;
-    border: 3px solid black;
-    height: 94%;
-    width: 36%;
-    min-width: 330px;
-    min-height: 94%;
-    
-    }
-
-  mat-action-list {
-    height: 85%;
-   
-    width: 100%;
-  
-   position: relative;
-    overflow-y: auto;
-    min-width: 330px;
-    min-height: 230px
-
+._main-whiteboard-main-row {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 
 
 
-  ._pokemon-name-font {
-    font-size: 30px;
-    color: #ffcc00;
-    -webkit-text-stroke-width: 1.7px;
-  -webkit-text-stroke-color: #0067b4;
-  
-  }
+
+
+  ._list-frame {
+    background: rgba(255,255,255,0.9);
+    border: 3px solid black;
+    overflow: auto;
+   min-height: 600px;
+    
+    }
+
+
+
+
+
+    mat-list-item {
+      max-height: 25px;
+    }
+
+ 
 
   mat-paginator {
     min-width: 60%;
