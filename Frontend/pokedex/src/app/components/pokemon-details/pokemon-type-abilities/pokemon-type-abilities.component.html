@@ -1,0 +1,47 @@
+<div fxLayout="row wrap" class="_type-abilities-row">
+
+    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <div fxLayout="row wrap" class="_type-header-row">
+            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_type-header-col">
+                Type
+            </div>
+        </div>
+
+        <!--^^^^^^^^^^^^^^^^^^^^^^^^TYPE HEADER^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+        <div fxLayout="row wrap" class="_type-body-row">
+            <ng-container *ngFor="let t of pokemon?.types">
+                <div fxFlex="45%" fxFlex.xs="45%" fxFlex.sm="70%">
+                    <div [class]="typeToCssClass[t.type.typeId]" class="_type-item">
+                        {{t.type.name}}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <!--^^^^^^^^^^^^^^^^^^^^^^^^TYPE BODY^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <div fxLayout="row wrap" class="_abilities-header-row">
+            <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_abilities-header-col">
+                Abilities
+            </div>
+        </div>
+
+        <!--^^^^^^^^^^^^^^^^^^^^^^^^ABILITES HEADER^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+        <div fxLayout="row wrap" class="_abilities-body-row">
+            <ng-container *ngFor="let a of pokemon?.abilities">
+                <div fxFlex="45%" fxFlex.xs="45%" fxFlex.sm="70%" class="_abilities-body-col">
+                    <div class="_abilities-item">
+                        {{a.ability.name}}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <!--^^^^^^^^^^^^^^^^^^^^^^^^ABILITIES BODY^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+    </div>
+</div>

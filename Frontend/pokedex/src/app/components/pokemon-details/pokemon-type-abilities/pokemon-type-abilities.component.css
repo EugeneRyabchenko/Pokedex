@@ -1,0 +1,158 @@
+._type-abilities-row{
+ width:inherit;
+ background: #30a7d7;
+ border-radius: 15px;
+ box-shadow: 2px 2px 7px;
+ margin-bottom: 10px;
+}
+
+._type-header-row{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+._type-header-col{
+    display: flex; 
+    padding-left: 10px;
+    align-items: center;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+._type-body-row{
+    display: flex;
+    height: inherit; 
+    align-items: center;
+    justify-content: space-around;
+    text-transform: capitalize;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+._type-item{
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+._abilities-header-row{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+._abilities-header-col{
+    display: flex; 
+    padding-left: 10px;
+    align-items: center;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+._abilities-body-row{
+    display: flex;
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    justify-content:space-around;
+    text-transform:capitalize
+}
+
+._abilities-body-col{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background: rgb(215, 206, 247);
+}
+
+._abilities-item{
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+._normal-type{
+    background: #a8a878;
+  }
+  ._fighting-type{
+    background: #c03028;
+  }
+  ._flying-type{
+    background: #a890f0;
+  }
+  ._poison-type{
+    background: #a040a0;
+    color: #ffffff;
+  }
+  ._ground-type{
+    background: #e0c068;
+  }
+  ._rock-type{
+    background: #b8a038;
+  }
+  ._bug-type{
+    background: #a8b820;
+  }
+  ._ghost-type{
+    background: #705898;
+    color: #ffffff;
+  }
+  ._steel-type{
+    background: #b8b8d0;
+  }
+  ._fire-type{
+    background: #f08030;
+    color: #ffffff;
+  }
+  ._water-type{
+    background: #6890f0;
+    color: #ffffff;
+  }
+  ._grass-type{
+    background: #78c850;
+  }
+  ._electric-type{
+    background: #f8d030;
+  }
+  ._psychic-type{
+    background: #f85888;
+    color: #ffffff;
+  }
+  ._ice-type{
+    background: #98d8d8;
+  }
+  ._dragon-type{
+    background: #7038f8;
+  }
+  ._dark-type{
+    background: #705848;
+    color: #ffffff;
+  }
+  ._fairy-type{
+    background: #f0b6bc;
+  }
+  ._unknown-type{
+    background: #b8b8d0;
+  }
+  ._shadow-type{
+    background: #705848;
+    color: #ffffff;
+  }
+  

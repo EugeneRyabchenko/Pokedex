@@ -24,7 +24,7 @@
 
                     <!--^^^^^^^^^^^^MAIN WHITEBOARD MAIN COL^^^^^^^^^^^^-->
 
-                    <div fxLayout="row wrap" class="_name-row">           
+                    <div fxLayout="row wrap" class="_name-row">
                         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_name-col">
                             {{pokemon?.name}} <div style="color: #a4acaf; padding-left: 5px;">
                                 <div *ngIf="pokemon?.order > 0 && pokemon?.order <= 9"> #00{{pokemon?.order}}</div>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                     <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON NAME^^^^^^^^^^^^^^^^^^^^^^^^-->
+                    <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON NAME^^^^^^^^^^^^^^^^^^^^^^^^-->
 
                     <div fxLayout="row wrap" class="_pic-type-abilities-stats-row">
 
@@ -47,104 +47,17 @@
                         <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
                             <div fxLayout="row wrap" class="_type-abilities-stats-row">
                                 <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_type-abilities-stats-col">
-                                    <div fxLayout="row wrap" style="
-                           width:inherit;
-                            background: #30a7d7;
-                            border-radius: 15px;
-                            box-shadow: 2px 2px 7px;
-                           
-                            margin-bottom: 10px
-                            ">
+                                    <app-pokemon-type-abilities [pokemon]="pokemon"></app-pokemon-type-abilities>
 
-                                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+                                    <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON TYPE AND ABILITIES^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-                                            <div fxLayout="row wrap" style="
-                                    width: inherit;
-                                   height: inherit;
-                                   display: flex;
-                                   align-items: center;
-                                   justify-content: center;
-                                   padding-top: 5px;
-                                   padding-bottom: 5px;">
-                                                <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex; 
-                                          padding-left: 10px;
-                                           align-items: center;
-                                           font-weight: bolder;
-                                           font-family:Verdana, Geneva, Tahoma, sans-serif;
-                                           color: white;
-                                           ">
-                                                    Type
-                                                </div>
-                                            </div>
 
-                                            <div fxLayout="row wrap" style="display: flex;
-                                                height: inherit; 
-                                                align-items: center;
-                                                justify-content: space-around;
-                                                text-transform:capitalize;
-                                                padding-top: 5px;
-                                                padding-bottom: 5px;">
 
-                                                <ng-container *ngFor="let t of pokemon?.types">
-                                                    <div fxFlex="45%" fxFlex.xs="45%" fxFlex.sm="70%">
-                                                        <div [class]="typeToCssClass[t.type.typeId]" style="border-radius: 8px;
-                                        margin-bottom: 5px;
-                                        display: flex;
-                                        justify-content: center;
-                                        font-weight: bolder;
-                                        font-family:Verdana, Geneva, Tahoma, sans-serif;">
-                                                            {{t.type.name}}
-                                                        </div>
-                                                    </div>
-                                                </ng-container>
-                                            </div>
 
-                                        </div>
 
-                                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-                                            <div fxLayout="row wrap" style="
-                     width: inherit;
-                    height: inherit;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding-top: 5px;
-                    padding-bottom: 5px;">
-                                                <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex; 
-                             padding-left: 10px;
-                            align-items: center;
-                            font-weight: bolder;
-                            font-family:Verdana, Geneva, Tahoma, sans-serif;
-                            color: white;
-                            ">
-                                                    Abilities
-                                                </div>
-                                            </div>
-                                            <div fxLayout="row wrap" style="display: flex;
-                     width: inherit;
-                    height: inherit;
-                    align-items: center;
-                    justify-content:space-around;
-                    text-transform:capitalize">
-                                                <ng-container *ngFor="let a of pokemon?.abilities">
-                                                    <div fxFlex="45%" fxFlex.xs="45%" fxFlex.sm="70%" style="
-                            display: flex;
-                            justify-content: space-around;
-                            border-radius: 8px;
-                            margin-bottom: 5px;
-                            background: rgb(215, 206, 247);">
-                                                        <div style="
-                                display: flex;
-                                justify-content: center;
-                                font-weight: bolder;
-                                font-family:Verdana, Geneva, Tahoma, sans-serif;">
-                                                            {{a.ability.name}}
-                                                        </div>
-                                                    </div>
-                                                </ng-container>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
+
 
                                     <div fxLayout="row wrap" style="
                             width: inherit;

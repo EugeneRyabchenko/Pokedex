@@ -20,6 +20,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RoutingService } from './services/routing-service';
 import { PokemonPictureComponent } from './components/pokemon-details/pokemon-picture/pokemon-picture.component';
+import { PokemonTypeAbilitiesComponent } from './components/pokemon-details/pokemon-type-abilities/pokemon-type-abilities.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PokemonPictureComponent } from './components/pokemon-details/pokemon-pi
     PokemonDetailsComponent,
     PokemonItemComponent,
     PokemonListComponent,
-    PokemonPictureComponent
+    PokemonPictureComponent,
+    PokemonTypeAbilitiesComponent
   ],
   imports: [
     BrowserModule,
