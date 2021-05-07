@@ -51,79 +51,16 @@
 
                                     <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON TYPE AND ABILITIES^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+                                    <app-pokemon-stats [pokemon]="pokemon"></app-pokemon-stats>
 
-
-
-
-
-
-
-
-                                    <div fxLayout="row wrap" style="
-                            width: inherit;
-                                   height: inherit;
-                          
-                          
-                           margin-top: 2.5px;                         
-                            background: #a4a4a4;
-                            border-radius: 15px;
-                            box-shadow: 2px 2px 7px;">
-
-                                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="
-                             padding-left: 10px;
-                             padding-bottom: 10px;
-                             padding-top: 5px;
-                            align-items: center;
-                            font-weight: bolder;
-                            font-family:Verdana, Geneva, Tahoma, sans-serif;
-                            
-                            ">
-                                            Stats
-                                        </div>
-                                        <div fxLayout="row wrap" style="
-                                    width: 100%;
-                                    display: flex;
-                                    justify-content: space-between;">
-                                            <div style="padding-left: 10px;
-                            padding-top: 10px;
-                            padding-bottom: 10px;
-                            width: 100%;
-                            min-width: 150px;                       
-                           ">
-                                                <ng-container *ngFor="let s of pokemon?.stats">
-                                                    <div style="text-transform:capitalize;
-                                    display: flex;                                 
-                                    height: 18px;     
-                                    padding-top: 5px;
-                                    padding-right: 5px;
-                                    font-family:Verdana, Geneva, Tahoma, sans-serif;">
-                                                        {{s.stat.name}}:
-                                                        <div style="font-weight: bolder; "> {{s.statValue}} </div>
-                                                    </div>
-                                                    <mat-progress-bar style="height: 9px;
-                                               width: 98%;
-                                                padding-bottom: 5px;" [value]=s.statValue*statProgressBar>
-                                                        {{s.statValue}}
-                                                    </mat-progress-bar>
-                                                </ng-container>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-
-
-
-
+                                    <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON STATS^^^^^^^^^^^^^^^^^^^^^^^^-->
 
                                 </div>
-
                             </div>
-
-
                         </div>
                     </div>
+
+                    <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON PIC TYPE ABILITIES STATS ROW^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
                     <div fxLayout="row wrap">
