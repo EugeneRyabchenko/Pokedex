@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RoutingService } from './services/routing-service';
+import { PokemonPictureComponent } from './components/pokemon-details/pokemon-picture/pokemon-picture.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { RoutingService } from './services/routing-service';
     HomeComponent,
     PokemonDetailsComponent,
     PokemonItemComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonPictureComponent
   ],
   imports: [
     BrowserModule,

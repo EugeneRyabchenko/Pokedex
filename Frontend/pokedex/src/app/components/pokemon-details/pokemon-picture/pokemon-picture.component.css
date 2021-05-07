@@ -1,0 +1,25 @@
+._pic-styles-1 {
+  max-width: 450px;
+  display: flex;
+  justify-content: center;
+}
+
+._pic-styles-2 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+._pic-styles-3 {
+  display: flex;
+  height: inherit; width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+._pic-styles-4 {
+  margin-bottom: 10px;
+  width: inherit;
+  background: #f2f2f2;
+  box-shadow: 2px 2px 7px;
+  border-radius: 15px;
+}

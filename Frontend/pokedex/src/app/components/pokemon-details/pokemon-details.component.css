@@ -4,25 +4,18 @@
   height: 100%;
   overflow: hidden;
   display: flex;
-   
     justify-content: center;
   background-image: url("/assets/pallet_town.png");
   background-size: cover;
-
-
 }
 
 
-.pokemon-details-component-card {
+.main-whiteboard {
     max-width: auto;
     min-height: auto;
     background: rgba(255,255,255,1);
     width: 70%;
-    
     overflow: auto
-   
-  
-    
 }
 
 ._detailsLoadingPokeball {
@@ -32,6 +25,95 @@
   padding-top: 11%;
   height: 45%;
 }
+
+._main-whiteboard-main-row {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+._name-row {
+  padding-top: 25px;
+  padding-bottom: 55px;
+}
+
+._name-col {
+  display: flex;
+  width: inherit;
+  justify-content: center;
+  text-transform:capitalize; 
+  font-size: xx-large;     
+  font-weight: bolder;
+  font-family:Arial, Helvetica, sans-serif;      
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+._pic-type-abilities-stats-row {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+._pic-styles-1 {
+  max-width: 450px;
+  display: flex;
+  justify-content: center;
+}
+
+._pic-styles-2 {
+  display: flex;
+  height: inherit; width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+._pic-styles-3 {
+  margin-bottom: 10px;
+  width: inherit;
+  background: #f2f2f2;
+  box-shadow: 2px 2px 7px;
+  border-radius: 15px;
+}
+
+._type-abilities-stats-row {
+  display: flex;
+  justify-content: center;
+}
+
+._type-abilities-stats-col {
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  align-items:center;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

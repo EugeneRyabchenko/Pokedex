@@ -1,32 +1,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <div class="bg">
-    <div class="pokemon-details-component-card ">
+
+    <!--^^^^^^^^^^^^PALLET TOWN BACKGROUND^^^^^^^^^^^^-->
+
+    <div class="main-whiteboard">
+
+        <!--^^^^^^^^^^^^MAIN WHITEBOARD^^^^^^^^^^^^-->
 
         <ng-container *ngIf="detailsLoading">
             <img src="assets/pokeball_gif.gif" class="_detailsLoadingPokeball">
         </ng-container>
 
+        <!--^^^^^^^^^^^^SPINNGING POKEBALL GIF^^^^^^^^^^^^-->
+
         <ng-container *ngIf="!detailsLoading">
 
+            <div fxLayout="row wrap" class="_main-whiteboard-main-row">
 
-            <div fxLayout="row wrap" style="height: 100%; width: 100%; overflow: auto;
-        padding-right: 5px;
-        padding-left: 5px;">
+                <!--^^^^^^^^^^^^MAIN WHITEBOARD MAIN ROW^^^^^^^^^^^^-->
 
                 <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
-                    <div fxLayout="row wrap" style=" padding-top: 25px; padding-bottom: 55px;">
-                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex;
-                                                width: inherit;
-                                                justify-content: center;
-                                                text-transform:capitalize; 
-                                                font-size: xx-large;     
-                                                font-weight: bolder;
-                                                font-family:Arial, Helvetica, sans-serif;      
-                                                padding-top: 5px;
-                                                padding-bottom: 5px;
-                                                
-                                              ">
+                    <!--^^^^^^^^^^^^MAIN WHITEBOARD MAIN COL^^^^^^^^^^^^-->
+
+                    <div fxLayout="row wrap" class="_name-row">           
+                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_name-col">
                             {{pokemon?.name}} <div style="color: #a4acaf; padding-left: 5px;">
                                 <div *ngIf="pokemon?.order > 0 && pokemon?.order <= 9"> #00{{pokemon?.order}}</div>
                                 <div *ngIf="pokemon?.order >= 10 && pokemon?.order <= 99"> #0{{pokemon?.order}}</div>
@@ -35,54 +34,19 @@
                         </div>
                     </div>
 
+                     <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON NAME^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-                    <div fxLayout="row wrap" style="padding-top: 10px; padding-bottom: 5px;">
+                    <div fxLayout="row wrap" class="_pic-type-abilities-stats-row">
 
                         <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
-                            <div fxLayout="row wrap" style=" 
-                                                max-width: 450px;
-                                                display: flex;
-                                                justify-content: center;
-                                                ">
-                                <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-left: 5px;
-                                margin-right: 5px;">
-
-
-
-
-                                    <div fxLayout="row wrap"  style="display: flex;
-                                height: inherit; width: 100%;
-                                align-items: center;
-                                justify-content: center;
-                                
-                                ">
-                                     
-                                        <img [src]="pokemon?.sprites.other.officalArtwork.frontDefault" style="
-                                        margin-bottom: 10px;
-                                        width: inherit;
-                                        background: #f2f2f2;
-                                        box-shadow: 2px 2px 7px;
-                                        border-radius: 15px;">
-                                        
-                                    </div>
-
-
-                                </div>
-                            </div>
+                            <app-pokemon-picture [pokemon]="pokemon"></app-pokemon-picture>
                         </div>
 
+                        <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON PIC^^^^^^^^^^^^^^^^^^^^^^^^-->
+
                         <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
-
-                            <div fxLayout="row wrap" style=" 
-                         
-                            display: flex;
-                            justify-content: center;
-                            ">
-                                <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-left: 2.5px;
-            margin-right: 2.5px;
-            align-items:center;
-           ">
-
+                            <div fxLayout="row wrap" class="_type-abilities-stats-row">
+                                <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_type-abilities-stats-col">
                                     <div fxLayout="row wrap" style="
                            width:inherit;
                             background: #30a7d7;
@@ -272,7 +236,7 @@
                                        padding-bottom: 15px;
                                         background-image: url('/assets/evolutions_bg.png');
                                         background-size: cover;">
-                                        <div  style="display: flex;
+                                        <div style="display: flex;
                                          position: sticky;
                                          font-weight: bolder;
                                          color: white;
@@ -280,7 +244,7 @@
                                          padding-top: 5px;
                                   
                                    padding-left: 10px;                              
-                                         " > Evolutions </div>
+                                         "> Evolutions </div>
 
                                         <div fxLayout="row wrap" style="
                                     width: 100%;                     
@@ -289,10 +253,11 @@
                                    padding-top: 5px;
                                    padding-bottom: 5px;">
 
-                                            <ng-container *ngFor="let l of evolutionForms" >
+                                            <ng-container *ngFor="let l of evolutionForms">
 
 
-                                                <div style="justify-content: center; align-items: center;" (click)="onClickEvolutionForm(l.name)">
+                                                <div style="justify-content: center; align-items: center;"
+                                                    (click)="onClickEvolutionForm(l.name)">
                                                     <div fxLayout="row wrap" style="display: flex;
                                                     height: 75%; width: 100%;
                                                     align-items: center;
@@ -300,14 +265,14 @@
                                                     padding-top: 15px;
                                                     cursor: pointer;
                                                    ">
-                                                            <img  [src]="l?.sprites.other.officalArtwork.frontDefault" style="
+                                                        <img [src]="l?.sprites.other.officalArtwork.frontDefault" style="
                                                             max-height: 120px;
                                                             background: #616161;
                                                             border-radius: 60px;
                                                             border-color: white;
                                                             box-shadow: 0px 3px 8px;
                                                             border-style:solid">
-                                                        </div>
+                                                    </div>
 
                                                     <div fxLayout="row wrap" style="display: flex;
                                                 height: 10%; 
@@ -324,12 +289,13 @@
                                                         {{l?.name}} <div style="color: #a4acaf; padding-left: 5px;">
                                                             <div *ngIf="l?.order > 0 && l?.order <= 9"> #00{{l?.order}}
                                                             </div>
-                                                            <div *ngIf="l?.order >= 10 && l?.order <= 99"> #0{{l?.order}}
+                                                            <div *ngIf="l?.order >= 10 && l?.order <= 99">
+                                                                #0{{l?.order}}
                                                             </div>
                                                             <div *ngIf="l?.order >= 100"> #{{l?.order}}</div>
                                                         </div>
                                                     </div>
-                                                  
+
                                                     <div fxLayout="row wrap" style="display: flex;
                                                                 height: 10%; width: 100%;
                                                                 align-items: center;
@@ -369,9 +335,9 @@
                      margin-bottom: 10px
                      ">
 
-                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+                        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
-                        <div fxLayout="row wrap" style="
+                            <div fxLayout="row wrap" style="
                         width: inherit;
                        height: inherit;
                        display: flex;
@@ -379,18 +345,18 @@
                        justify-content: center;
                        padding-top: 5px;
                        padding-bottom: 5px;">
-                                    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex; 
+                                <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="display: flex; 
                               padding-left: 10px;
                                align-items: center;
                                font-weight: bolder;
                                font-family:Verdana, Geneva, Tahoma, sans-serif;
                                color: white;
                                ">
-                                        Moves
-                                    </div>
+                                    Moves
                                 </div>
+                            </div>
 
-                                <div fxLayout="row wrap" style="display: flex;
+                            <div fxLayout="row wrap" style="display: flex;
                                 height: inherit; 
                                 align-items: center;
                                 justify-content: space-around;
@@ -400,16 +366,16 @@
                                 padding-right: 10px;
                                 padding-top: 5px;
                                 padding-bottom: 5px;">
-                      
-                            <ng-container *ngFor="let m of pokemon?.moves; let isLast=last">
-                                {{m.move.name}}{{isLast ? '' : ', '}}
-                            </ng-container>
-                      
+
+                                <ng-container *ngFor="let m of pokemon?.moves; let isLast=last">
+                                    {{m.move.name}}{{isLast ? '' : ', '}}
+                                </ng-container>
+
+                            </div>
+
+
                         </div>
-                
-                
                     </div>
-                </div>
 
                 </div>
             </div>
@@ -417,40 +383,3 @@
         </ng-container>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
