@@ -5,14 +5,14 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
 
 
 @Component({
-    selector: 'app-pokemon-stats',
-    templateUrl: './pokemon-stats.component.html',
-    styleUrls: ['./pokemon-stats.component.css']
+    selector: 'app-pokemon-moves',
+    templateUrl: './pokemon-moves.component.html',
+    styleUrls: ['./pokemon-moves.component.css']
 })
-export class PokemonStatsComponent implements OnInit {
+export class PokemonMovesComponent implements OnInit {
 
     @Input() pokemon: Pokemon
-    statProgressBar = 0.5
+
     constructor(){}
 
     ngOnInit(): void {

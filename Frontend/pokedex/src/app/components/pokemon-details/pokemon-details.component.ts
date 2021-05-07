@@ -18,8 +18,7 @@ import { RoutingService } from "src/app/services/routing-service";
 export class PokemonDetailsComponent implements OnInit {
 
     maxStat: number
-    maxStatEver = 200
-    statProgressBar = 1
+    statProgressBar = 0.5
     @Input() pokemon: Pokemon
     typeIndices: number[]
     typeToCssClass = typeToCssClass
@@ -59,7 +58,7 @@ export class PokemonDetailsComponent implements OnInit {
                     const allStats = p.stats.map(s => s.statValue)
                     this.maxStat = Math.max.apply(null, allStats)
                     console.log("maxStat ", this.maxStat)
-                    this.statProgressBar = this.statProgressBar * 100 / this.maxStatEver
+                    this.statProgressBar = this.statProgressBar / 2
                     this.typeIndices = p.types.map(t => +t.type.url.split("/")[6])
                     console.log("pokemon type indeces: ", p.types[0].type.typeId)
 

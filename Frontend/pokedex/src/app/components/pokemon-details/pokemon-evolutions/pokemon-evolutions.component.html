@@ -1,0 +1,52 @@
+<div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_evolutions-col">
+    <div fxLayout="row wrap" class="_evolutions-row">
+        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+            <div class="_evolutions-bg">
+
+                <div class="_evolutions-header">
+                    Evolutions
+                </div>
+
+                <!--^^^^^^^^^^^^^^^^^^EVOLUTIONS HEADER^^^^^^^^^^^^^^^^^^-->
+
+                <div fxLayout="row wrap" class="_evolutions-body-row">
+                    <ng-container *ngFor="let l of evolutionForms">
+                        <div class="_evolutions-item" (click)="onClickEvolutionForm(l.name)">
+
+                            <!--^^^^^^^^^^^^^^^^^^EVOLUTIONS BODY^^^^^^^^^^^^^^^^^^-->
+
+                            <div fxLayout="row wrap" class="_evolutions-item-picture-row">
+                                <img [src]="l?.sprites.other.officalArtwork.frontDefault"
+                                    class="_evolutions-item-picture-style">
+                            </div>
+
+                            <!--^^^^^^^^^^^^^^^^^^^^^^^^EVOLUTIONS PICTURE^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+                            <div fxLayout="row wrap" class="_evolutions-item-name-row">
+                                {{l?.name}}
+                                <div class="_evolutions-item-order">
+                                    <div *ngIf="l?.order > 0 && l?.order <= 9"> #00{{l?.order}}</div>
+                                    <div *ngIf="l?.order >= 10 && l?.order <= 99"> #0{{l?.order}}</div>
+                                    <div *ngIf="l?.order >= 100"> #{{l?.order}}</div>
+                                </div>
+                            </div>
+
+                            <!--^^^^^^^^^^^^^^^^^^^^^^^^EVOLUTIONS NAME AND ORDER^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+                            <div fxLayout="row wrap" class="_evolutions-item-type-row">
+                                <ng-container *ngFor="let t of l?.types">
+                                    <div [class]="typeToCssClass[t.type.typeId]" class="_evolutions-item-type-item">
+                                        {{t.type.name}}
+                                    </div>
+                                </ng-container>
+                            </div>
+
+                            <!--^^^^^^^^^^^^^^^^^^^^^^^^EVOLUTIONS TYPE^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

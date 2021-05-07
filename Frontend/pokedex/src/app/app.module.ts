@@ -22,6 +22,8 @@ import { RoutingService } from './services/routing-service';
 import { PokemonPictureComponent } from './components/pokemon-details/pokemon-picture/pokemon-picture.component';
 import { PokemonTypeAbilitiesComponent } from './components/pokemon-details/pokemon-type-abilities/pokemon-type-abilities.component';
 import { PokemonStatsComponent } from './components/pokemon-details/pokemon-stats/pokemon-stats.component';
+import { PokemonMovesComponent } from './components/pokemon-details/pokemon-moves/pokemon-moves.component';
+import { PokemonEvolutionsComponent } from './components/pokemon-details/pokemon-evolutions/pokemon-evolutions.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { PokemonStatsComponent } from './components/pokemon-details/pokemon-stat
     PokemonListComponent,
     PokemonPictureComponent,
     PokemonTypeAbilitiesComponent,
-    PokemonStatsComponent
+    PokemonStatsComponent,
+    PokemonMovesComponent,
+    PokemonEvolutionsComponent
   ],
   imports: [
     BrowserModule,
