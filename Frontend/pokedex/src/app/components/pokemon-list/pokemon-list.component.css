@@ -1,3 +1,12 @@
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/assets/pallet_town.png");
+  background-size: cover;
+}
+
 ._main-whiteboard-main-row {
   height: 100%;
   width: 100%;
@@ -6,35 +15,82 @@
   padding-left: 5px;
 }
 
+._pokemon-list-main-col {
+  padding-right: 40px;
+  padding-left: 40px;
+}
 
+._list-frame {
+  background: rgba(255,255,255,0.9);
+  padding: 5px;
+  margin: 10px;
+  max-height: 580px;
+  box-shadow: 2px 2px 7px;
+  border-radius: 15px;
+}
 
+._list-body {
+  overflow: auto;
+  height: 505px;
+  padding-top: 5px;
+  margin-right: 2px;
+  padding-bottom: 20px;
+}
 
-
-
-  ._list-frame {
-    background: rgba(255,255,255,0.9);
-    border: 3px solid black;
-    overflow: auto;
-   min-height: 600px;
-    
-    }
-
-
-
-
-
-    mat-list-item {
-      max-height: 25px;
-    }
-
- 
+  mat-list-item {
+  max-height: 42px;
+}
 
   mat-paginator {
-    min-width: 60%;
-    font-size: 14px
-  }
+  min-width: 60%;
+  height: 50px;
+  font-size: 12px
+}
 
+._pokemon-logo-row {
+  display: flex;
+  align-items: center;
+  height: 30%;
+}
+
+._pokemon-logo-col {
+  display: flex;
+  justify-content: center;
+}
+
+._pokemon-logo-png {
+  max-width: 450px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
   
+._pokedex-main-row {
+  display: flex;
+  height: 70%;
+}
 
+._pokedex-main-col {
+  display: flex;
+  justify-content: center;
+  align-items:baseline;  
+}
 
+._pokedex-style-1 {
+  height: 100%;
+  position: relative;
+}
+
+._pokedex-style-2 {
+  min-width: 365px;
+  max-height: 200px;
+  padding-left: 50px;
+  padding-top: 70px;
+  transform: rotate(-7deg);
+  position:absolute;
+}
+
+._pokedex-device-png {
+  height: inherit;
+  width: inherit;
+}
 

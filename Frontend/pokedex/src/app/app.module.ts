@@ -12,11 +12,11 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { FilterPipe } from './filter.pipe';
 import { PokemonService } from './services/pokemon-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatCardModule} from '@angular/material/card';
-import {MatProgressBarModule} from '@angular/material/progress-bar'
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RoutingService } from './services/routing-service';
 import { PokemonPictureComponent } from './components/pokemon-details/pokemon-picture/pokemon-picture.component';
@@ -25,6 +25,8 @@ import { PokemonStatsComponent } from './components/pokemon-details/pokemon-stat
 import { PokemonMovesComponent } from './components/pokemon-details/pokemon-moves/pokemon-moves.component';
 import { PokemonEvolutionsComponent } from './components/pokemon-details/pokemon-evolutions/pokemon-evolutions.component';
 import { PokemonPreviewComponent } from './components/pokemon-list/pokemon-preview/pokemon-preview.component';
+import { PokemonStore } from './stores/pokemon-store';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -54,10 +56,10 @@ import { PokemonPreviewComponent } from './components/pokemon-list/pokemon-previ
     MatCardModule,
     MatProgressBarModule,
     NgbModule,
-    FlexLayoutModule 
-
+    FlexLayoutModule, 
+    MatIconModule
   ],
-  providers: [PokemonService, RoutingService],
+  providers: [PokemonService, RoutingService, PokemonStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

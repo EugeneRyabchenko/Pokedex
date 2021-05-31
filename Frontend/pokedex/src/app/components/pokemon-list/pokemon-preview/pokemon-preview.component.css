@@ -1,25 +1,62 @@
-._pic-styles-1 {
-    height: 50%;
-    max-width: 420px;
-   
-    display: flex;
-    justify-content: center;
+._preview-pic-row {
+  height: 50%;
+  max-width: 550px;
+  position: absolute;
+  padding-top: 80px;
+  padding-left: 30px;
   }
-  
-  ._pic-styles-3 {
+
+  ._preview-pic-col {
     display: flex;
     height: inherit; width: 100%;
     align-items: center;
     justify-content: center;
   }
-  
-  ._pic-styles-4 {
-      padding-top: 15px;
-      padding-right: 10px;
-    max-height: 130px;
-    max-width: 130px;
-    width: inherit;
- /*   background: #f2f2f2;
-    box-shadow: 2px 2px 7px;
-    border-radius: 15px; */
+
+  ._preview-pokeball {
+    max-width: 80px;
+    padding-top: 10px;
+    padding-right: 25px;
   }
+  
+  ._preview-pic-sprite {
+    padding-top: 15px;
+    padding-right: 10px;
+    max-height: 140px;
+    max-width: 140px;
+    width: inherit;
+  }
+
+  ._preview-order-row {
+    height: 50%;
+    max-width: 420px;
+    position: absolute;
+    padding-top: 212px;
+   padding-left: 45px;
+  }
+
+  ._preview-order-col {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 34px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    color: white;                    
+  }
+
+  ._preview-name-col {
+    display: flex;     
+    justify-content: center;
+    padding-top: 35px;
+  }
+
+  ._preview-name-row {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-transform: capitalize;
+    color: white;
+  }
+
+

@@ -9,6 +9,7 @@ import { EvolutionChain, Pokemon, Stat } from "src/app/models/pokemon/pokemon";
 import { typeToCssClass } from "src/app/models/pokemon/pokemon-types";
 import { PokemonService } from "src/app/services/pokemon-service";
 import { RoutingService } from "src/app/services/routing-service";
+import { PokemonStore } from "src/app/stores/pokemon-store";
 
 @Component({
     selector: 'app-pokemon-details',
@@ -18,6 +19,7 @@ import { RoutingService } from "src/app/services/routing-service";
 export class PokemonDetailsComponent implements OnInit {
 
     maxStat: number
+    offset: number
     statProgressBar = 0.5
     @Input() pokemon: Pokemon
     typeIndices: number[]
@@ -37,19 +39,21 @@ export class PokemonDetailsComponent implements OnInit {
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private routingService: RoutingService,
-      
+        private pokemonStore: PokemonStore
+
     ) { }
 
     ngOnInit(): void {
+
         this.detailsLoading = true
 
         const id = this.activatedRoute.snapshot.paramMap.get("id")
-       
+
 
         this.subscription.add(
             this.pokemonService.getPokemonByUrl(id).pipe(
                 finalize(() => {
-                   
+
                 })
             ).subscribe(
                 (p) => {
@@ -95,42 +99,42 @@ export class PokemonDetailsComponent implements OnInit {
                 }
             )
         )
-    
-            
-        
-
-       
 
 
-       
+
+
+
+
+
+
 
 
 
 
 
         this.clickPokemonItem.emit(this.pokemon)
-console.log("details of this pokemon: " + this.pokemon)
-this.pokemonService.getPokemonByUrl(id)
+        console.log("details of this pokemon: " + this.pokemon)
+        this.pokemonService.getPokemonByUrl(id)
     }
 
-ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  
-}
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe()
 
-          public onClickBackToList(): void {
+    }
 
-    this.router.navigate(['pokemon/'])
+    public onClickBackToList(): void {
+        this.router.navigate(['pokemon/'])
+        console.log("BACK TO THE LIST")
 
-}
+    }
 
     public onClickEvolutionForm(name: string) {
         console.log("I HAVE BEEN CLICKED")
-        
-            this.routingService.reloadCurrentUrl('pokemon/' + name)
-   
-        
+
+        this.routingService.reloadCurrentUrl('pokemon/' + name)
+
+
     }
-  
-     
-  }
+
+
+}

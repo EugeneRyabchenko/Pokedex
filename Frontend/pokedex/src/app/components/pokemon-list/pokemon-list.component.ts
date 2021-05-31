@@ -7,6 +7,7 @@ import { switchMap } from "rxjs/operators";
 import { Pokemon, PokemonResults, Result } from "src/app/models/pokemon/pokemon";
 import { PokemonService } from "src/app/services/pokemon-service";
 import { PageEvent } from "@angular/material/paginator";
+import { PokemonStore } from "src/app/stores/pokemon-store";
 
 
 
@@ -23,6 +24,7 @@ export class PokemonListComponent implements OnInit {
     offset = 0
     length = 1118
     pageSize = 20
+    pageIndex = 0
     pageEvent: PageEvent
     pokemonPreviewComponentIsVisible = false
     pokemonPreviewName = ""
@@ -31,68 +33,83 @@ export class PokemonListComponent implements OnInit {
     @Input() results: Result[]
     @Input() pokemons: Pokemon[] = []
 
-    
 
     private subscription: Subscription = new Subscription()
 
     constructor(
+        private pokemonStore: PokemonStore,
         private pokemonService: PokemonService,
         private router: Router,
-        ) { }
+    ) { }
 
     ngOnInit(): void {
+        this.subscription.add(
+        this.pokemonStore.currentListOffset$.subscribe(
+            (offset) => { this.offset = offset }
+          ))
+    //    this.pokemonStore.setOffset(this.offset)
 
-this.subscription.add(
-        this.pokemonService.getAllPokemon(this.offset).subscribe(
-            (r) => {
-                this.results = r.results
-                console.log("results: ", r)
-               
-            })
-        )    
+        this.subscription.add(
+            this.pokemonStore.currentPageIndex$.subscribe(
+                (pageIndex) => { this.pageIndex = pageIndex }
+              ))
+        this.subscription.add(
+            this.pokemonService.getAllPokemon(this.offset).subscribe(
+                (r) => {
+                    this.results = r.results
+   //                 console.log("results: ", this.results)
+
+                })
+        )
     }
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe()
     }
-   
+
     public onPage(event?: PageEvent) {
-        if(event.pageIndex>event.previousPageIndex){
-            console.log("event's current and previous page indecis: ", event.pageIndex, event.previousPageIndex)
-            this.offset = this.offset + 20
-            this.subscription.add(
-                this.pokemonService.getAllPokemon(this.offset).subscribe(
-                    (r) => {
-                        this.results = r.results
-                        console.log("results: ", r)
-                        const longest = this.results.sort(
-                            function (a,b) {
-                                return b.name.length - a.name.length;
-                            }
-                          )[0]
-                          console.log("longest pokemon name: ", longest.name.length, " letters ", longest)
-                    })
-                )      
+        if (event.pageIndex > event.previousPageIndex) {
+   //         console.log("event's current and previous page indecis: ", event.pageIndex, event.previousPageIndex)
+            this.onClickNextPage()
         } else {
-            console.log("event's current and previous page indecis: ", event.pageIndex, event.previousPageIndex)
-            this.offset = this.offset - 20
-            this.subscription.add(
-                this.pokemonService.getAllPokemon(this.offset).subscribe(
-                    (r) => {
-                        this.results = r.results
-                        console.log("results: ", r)
-                        const longest = this.results.sort(
-                            function (a,b) {
-                                return b.name.length - a.name.length;
-                            }
-                          )[0]
-                          console.log("longest pokemon name: ", longest.name.length, " letters ", longest)
-                    })
-                )   
-        } 
+   //         console.log("event's current and previous page indecis: ", event.pageIndex, event.previousPageIndex)
+            this.onClickPreviousPage()
+        }
     }
 
-      
+    public onClickNextPage(){
+        this.offset = this.offset + 20
+        this.pageIndex = this.pageIndex + 1
+        this.pokemonStore.setPageIdex(this.pageIndex)
+        
+        this.pokemonStore.setOffset(this.offset)
+        this.subscription.add(
+            this.pokemonService.getAllPokemon(this.offset).subscribe(
+                (r) => {
+                    this.results = r.results
+      //              console.log("results: ", this.results)
+      //              console.log("current offset: ", this.offset)
+                })
+        )
+    }
+
+    public onClickPreviousPage(){
+        this.offset = this.offset - 20
+        this.pageIndex = this.pageIndex - 1
+        this.pokemonStore.setPageIdex(this.pageIndex)
+        
+        this.pokemonStore.setOffset(this.offset)
+        this.subscription.add(
+            this.pokemonService.getAllPokemon(this.offset).subscribe(
+                (r) => {
+                    this.results = r.results
+         //           console.log("results: ", this.results)
+         //           console.log("current offset: ", this.offset)
+                })
+        )
+    }
+
+
     public onClickDetails(id: string): void {
         console.log("I HAVE BEEN CLICKED")
         this.router.navigate(['pokemon/' + id])
