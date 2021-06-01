@@ -101,17 +101,6 @@ export class PokemonDetailsComponent implements OnInit {
         )
 
 
-
-
-
-
-
-
-
-
-
-
-
         this.clickPokemonItem.emit(this.pokemon)
         console.log("details of this pokemon: " + this.pokemon)
         this.pokemonService.getPokemonByUrl(id)
