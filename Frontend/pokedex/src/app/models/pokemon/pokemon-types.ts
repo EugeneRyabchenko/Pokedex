@@ -1,5 +1,7 @@
 
 
+//------------------ CLASS FOR STYLING/COLORING DIFFERENT POKEMON TYPES WITH CSS ------------------//
+
 export const typeToCssClass = {
 
     1: "_normal-type",

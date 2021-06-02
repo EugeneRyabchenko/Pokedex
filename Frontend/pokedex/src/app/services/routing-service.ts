@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
-
-
 @Injectable()
 export class RoutingService{
 
@@ -21,10 +19,7 @@ export class RoutingService{
     }
 
     public clearUrlToReload() {
-
         this.urlToReload = "cleared"
-
     }
    
-
 }

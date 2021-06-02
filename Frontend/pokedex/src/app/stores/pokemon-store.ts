@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, Subject } from "rxjs";
-//import { User } from "../models/user";
 
+//------------------ KEEPS TRACK OF CURRENT OFFSET AND PAGE INDEX ------------------//
 
 @Injectable()
 export class PokemonStore{

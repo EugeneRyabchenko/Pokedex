@@ -15,10 +15,7 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
 @Input() pokemon: Pokemon
   router: any;
 
-  
-
   ngOnInit(): void {
-
   }
 
   ngOnDestroy(): void {

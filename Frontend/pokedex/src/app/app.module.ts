@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
-import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { FilterPipe } from './filter.pipe';
 import { PokemonService } from './services/pokemon-service';
@@ -35,7 +34,6 @@ import { MatIconModule } from '@angular/material/icon';
     FilterPipe,
     HomeComponent,
     PokemonDetailsComponent,
-    PokemonItemComponent,
     PokemonListComponent,
     PokemonPictureComponent,
     PokemonTypeAbilitiesComponent,

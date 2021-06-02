@@ -10,10 +10,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, 
   children: [
     { path: 'pokemon', component: PokemonListComponent },
-  //  { path: 'videos/new', component: VideoDetailsComponent},
-      { path: 'pokemon/:id', component: PokemonDetailsComponent},
- //   { path: 'user-registration', component: UserRegistrationComponent},
- //   { path: 'training', component: ProgrammingTraining},
+    { path: 'pokemon/:id', component: PokemonDetailsComponent},
     { path: '**', redirectTo: 'pokemon'}
     ]
   },
