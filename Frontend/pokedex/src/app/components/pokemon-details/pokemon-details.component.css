@@ -55,7 +55,9 @@
 }
 
 ._back-arrow-row {
-  display: flex; justify-content: left; padding-left: 4px;
+  display: flex;
+  justify-content: left;
+  padding-left: 4px;
 }
 
 ._pic-type-abilities-stats-row {
@@ -71,7 +73,7 @@
 ._type-abilities-stats-col {
   margin-left: 2.5px;
   margin-right: 2.5px;
-  align-items:center;
+  align-items: center;
 } 
 
 
@@ -115,7 +117,6 @@
   height: 20%;
   background: rgba(255,255,255,1);
 }
-
 
 .pokemon-name {
  

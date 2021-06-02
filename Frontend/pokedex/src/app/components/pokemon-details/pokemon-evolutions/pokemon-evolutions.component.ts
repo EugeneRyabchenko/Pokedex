@@ -13,24 +13,17 @@ import { typeToCssClass } from "src/app/models/pokemon/pokemon-types";
 })
 export class PokemonEvolutionsComponent implements OnInit {
 
-    @Input() pokemon: Pokemon
     @Input() evolutionForms: Pokemon[]
-    @Input() evolutionList: string[]
     typeToCssClass = typeToCssClass
 
-    constructor(private routingService: RoutingService){}
+    constructor(private routingService: RoutingService) { }
 
-    ngOnInit(): void {
-   
-        
-    }
+    ngOnInit(): void { }
+
+    //------------- NAVIGATES TO CLICKED POKEMON'S DETAIL PAGE IN THE EVOLUTION CHAIN -------------//
 
     public onClickEvolutionForm(name: string) {
-        console.log("I HAVE BEEN CLICKED")
-        
-            this.routingService.reloadCurrentUrl('pokemon/' + name)
-   
-        
+        this.routingService.reloadCurrentUrl('pokemon/' + name)
     }
 
-  }
+}

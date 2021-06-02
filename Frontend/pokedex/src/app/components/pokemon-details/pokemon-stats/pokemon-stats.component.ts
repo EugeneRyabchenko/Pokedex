@@ -3,7 +3,6 @@ import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { Pokemon } from "src/app/models/pokemon/pokemon";
 
-
 @Component({
     selector: 'app-pokemon-stats',
     templateUrl: './pokemon-stats.component.html',
@@ -12,11 +11,8 @@ import { Pokemon } from "src/app/models/pokemon/pokemon";
 export class PokemonStatsComponent implements OnInit {
 
     @Input() pokemon: Pokemon
-    statProgressBar = 0.5
-    constructor(){}
 
-    ngOnInit(): void {
-   
-        
-    }
-  }
+    constructor() { }
+
+    ngOnInit(): void { }
+}

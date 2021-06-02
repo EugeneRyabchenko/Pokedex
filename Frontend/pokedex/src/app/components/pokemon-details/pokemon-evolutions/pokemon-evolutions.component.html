@@ -10,31 +10,31 @@
                 <!--^^^^^^^^^^^^^^^^^^EVOLUTIONS HEADER^^^^^^^^^^^^^^^^^^-->
 
                 <div fxLayout="row wrap" class="_evolutions-body-row">
-                    <ng-container *ngFor="let l of evolutionForms">
-                        <div class="_evolutions-item" (click)="onClickEvolutionForm(l.name)">
+                    <ng-container *ngFor="let ef of evolutionForms">
+                        <div class="_evolutions-item" (click)="onClickEvolutionForm(ef.name)">
 
                             <!--^^^^^^^^^^^^^^^^^^EVOLUTIONS BODY^^^^^^^^^^^^^^^^^^-->
 
                             <div fxLayout="row wrap" class="_evolutions-item-picture-row">
-                                <img [src]="l?.sprites.other.officalArtwork.frontDefault"
+                                <img [src]="ef?.sprites.other.officalArtwork.frontDefault"
                                     class="_evolutions-item-picture-style">
                             </div>
 
                             <!--^^^^^^^^^^^^^^^^^^^^^^^^EVOLUTIONS PICTURE^^^^^^^^^^^^^^^^^^^^^^^^-->
 
                             <div fxLayout="row wrap" class="_evolutions-item-name-row">
-                                {{l?.name}}
+                                {{ef?.name}}
                                 <div class="_evolutions-item-order">
-                                    <div *ngIf="l?.order > 0 && l?.order <= 9"> #00{{l?.order}}</div>
-                                    <div *ngIf="l?.order >= 10 && l?.order <= 99"> #0{{l?.order}}</div>
-                                    <div *ngIf="l?.order >= 100"> #{{l?.order}}</div>
+                                    <div *ngIf="ef?.order > 0 && ef?.order <= 9"> #00{{ef?.order}}</div>
+                                    <div *ngIf="ef?.order >= 10 && ef?.order <= 99"> #0{{ef?.order}}</div>
+                                    <div *ngIf="ef?.order >= 100"> #{{ef?.order}}</div>
                                 </div>
                             </div>
 
                             <!--^^^^^^^^^^^^^^^^^^^^^^^^EVOLUTIONS NAME AND ORDER^^^^^^^^^^^^^^^^^^^^^^^^-->
 
                             <div fxLayout="row wrap" class="_evolutions-item-type-row">
-                                <ng-container *ngFor="let t of l?.types">
+                                <ng-container *ngFor="let t of ef?.types">
                                     <div [class]="typeToCssClass[t.type.typeId]" class="_evolutions-item-type-item">
                                         {{t.type.name}}
                                     </div>

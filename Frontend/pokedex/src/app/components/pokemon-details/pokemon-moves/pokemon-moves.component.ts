@@ -3,7 +3,6 @@ import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { Pokemon } from "src/app/models/pokemon/pokemon";
 
-
 @Component({
     selector: 'app-pokemon-moves',
     templateUrl: './pokemon-moves.component.html',
@@ -13,10 +12,7 @@ export class PokemonMovesComponent implements OnInit {
 
     @Input() pokemon: Pokemon
 
-    constructor(){}
+    constructor() { }
 
-    ngOnInit(): void {
-   
-        
-    }
-  }
+    ngOnInit(): void { }
+}

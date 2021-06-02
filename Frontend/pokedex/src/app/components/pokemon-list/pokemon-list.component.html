@@ -16,7 +16,7 @@
             <mat-list-item class="example-box" *ngFor="let r of results" (click)="onClickDetails(r.name)">
               <mat-divider></mat-divider>
 
-              <mat-list-item (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail(r.name)">
+              <mat-list-item (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail()">
                 <div style="text-transform:capitalize; font-size: 20px;">
                   {{r.name}}
                 </div>

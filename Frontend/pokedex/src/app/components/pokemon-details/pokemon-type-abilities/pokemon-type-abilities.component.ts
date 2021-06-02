@@ -14,10 +14,7 @@ export class PokemonTypeAbilitiesComponent implements OnInit {
 
     @Input() pokemon: Pokemon
     typeToCssClass = typeToCssClass
-    constructor(){}
+    constructor() { }
 
-    ngOnInit(): void {
-   
-        
-    }
-  }
+    ngOnInit(): void { }
+}

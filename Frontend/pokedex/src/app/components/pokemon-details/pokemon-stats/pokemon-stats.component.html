@@ -15,7 +15,7 @@
 
             <!--^^^^^^^^^^^^^^^^^^^^^^^^STATS VALUE^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-            <mat-progress-bar class="_stats-item-progress-bar" [value]=s.statValue*statProgressBar>
+            <mat-progress-bar class="_stats-item-progress-bar" [value]=s.statValue*0.5> <!-- all stat bar lengths are halved so that 200 (which is the highest base stat) is 100% of the bar length -->
                 {{s.statValue}}
             </mat-progress-bar>
 
