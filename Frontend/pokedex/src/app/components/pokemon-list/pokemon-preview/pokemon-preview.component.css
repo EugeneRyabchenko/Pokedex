@@ -57,6 +57,39 @@
     font-weight: bolder;
     text-transform: capitalize;
     color: white;
+    padding-right: 8px;
+  }
+
+  ._preview-font-size1 {
+    font-size: 7.5px;
+  }
+
+  ._preview-font-size2 {
+    font-size: 8px;
+  }
+
+  ._preview-font-size3 {
+    font-size: 9px;
+  }
+
+  ._preview-font-size4 {
+    font-size: 10px;
+  }
+
+  ._preview-font-size5 {
+    font-size: 11px;
+  }
+
+  ._preview-font-size6 {
+    font-size: 13px;
+  }
+
+  ._preview-font-size7 {
+    font-size: 15px;
+  }
+
+  ._preview-font-size8 {
+    font-size: 20px;
   }
 
 

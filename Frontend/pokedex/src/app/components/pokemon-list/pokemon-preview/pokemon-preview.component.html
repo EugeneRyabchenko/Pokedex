@@ -3,12 +3,8 @@
 
         <div fxLayout="row wrap" class="_preview-pic-row">
             <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_preview-pic-col">
-                <ng-container *ngIf="detailsLoading">
-                    <img src="assets/pokeball_gif.gif" class="_preview-pokeball">
-                </ng-container>
-                <ng-container *ngIf="!detailsLoading">
-                    <img *ngIf="!detailsLoading" [src]="pokemon?.sprites.thumbnail" class="_preview-pic-sprite">
-                </ng-container>
+                <img *ngIf="detailsLoading" src="assets/pokeball_gif.gif" class="_preview-pokeball">
+                <img *ngIf="!detailsLoading" [src]="pokemon?.sprites.thumbnail" class="_preview-pic-sprite">
             </div>
         </div>
 
@@ -28,23 +24,16 @@
 
     <div fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" class="_preview-name-col">
         <div fxLayout="row wrap">
-            <div class="_preview-name-row">
-                <div *ngIf="pokemon?.name.length <= 26 && pokemon?.name.length >= 24" style="font-size: 7.5px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 23 && pokemon?.name.length >= 21" style="font-size: 8px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 20 && pokemon?.name.length >= 18" style="font-size: 9px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 17 && pokemon?.name.length >= 15" style="font-size: 10px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 14 && pokemon?.name.length >= 12" style="font-size: 11px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 11 && pokemon?.name.length >= 9" style="font-size: 13px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 8 && pokemon?.name.length >= 6" style="font-size: 15px;">
-                    {{pokemon?.name}}</div>
-                <div *ngIf="pokemon?.name.length <= 5 && pokemon?.name.length >= 3" style="font-size: 20px;">
-                    {{pokemon?.name}}</div>
+            <div class="_preview-name-row" [ngClass]="{
+                '_preview-font-size1' : pokemon?.name.length <= 26 && pokemon?.name.length >= 24,
+                '_preview-font-size2' : pokemon?.name.length <= 23 && pokemon?.name.length >= 21,
+                '_preview-font-size3' : pokemon?.name.length <= 20 && pokemon?.name.length >= 18,
+                '_preview-font-size4' : pokemon?.name.length <= 17 && pokemon?.name.length >= 15,
+                '_preview-font-size5' : pokemon?.name.length <= 14 && pokemon?.name.length >= 12,
+                '_preview-font-size6' : pokemon?.name.length <= 11 && pokemon?.name.length >= 9,
+                '_preview-font-size7' : pokemon?.name.length <= 8 && pokemon?.name.length >= 6,
+                '_preview-font-size8' : pokemon?.name.length <= 5 && pokemon?.name.length >= 3}">
+                {{pokemon?.name}}
             </div>
         </div>
 
