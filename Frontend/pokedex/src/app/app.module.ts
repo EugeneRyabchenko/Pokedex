@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
-import { FilterPipe } from './filter.pipe';
 import { PokemonService } from './services/pokemon-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,7 +30,6 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    FilterPipe,
     HomeComponent,
     PokemonDetailsComponent,
     PokemonListComponent,

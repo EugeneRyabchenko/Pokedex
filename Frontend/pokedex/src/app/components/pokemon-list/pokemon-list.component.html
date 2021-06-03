@@ -13,18 +13,16 @@
 
         <div class="_list-body">
           <mat-action-list>
-            <mat-list-item class="example-box" *ngFor="let r of results" (click)="onClickDetails(r.name)">
+            <mat-list-item class="example-box" *ngFor="let r of results" (click)="onClickDetails(r.name)" (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail()">
               <mat-divider></mat-divider>
 
-              <mat-list-item (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail()">
-                <div style="text-transform:capitalize; font-size: 20px;">
-                  {{r.name}}
-                </div>
-              </mat-list-item>
+              <div class="_list-name">
+                {{r.name}}
+              </div>
 
               <!--^^^^^^^^^^^^^^^^^^^POKEMON NAME^^^^^^^^^^^^^^^^^^^-->
 
-              <div style="text-transform:capitalize">
+              <div>
                 {{r.id}}
               </div>
 

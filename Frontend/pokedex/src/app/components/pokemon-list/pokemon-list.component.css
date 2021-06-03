@@ -94,3 +94,12 @@
   width: inherit;
 }
 
+._list-name {
+  text-transform:capitalize;
+  font-size: 20px;
+}
+
+:host ::ng-deep mat-list-item .mat-list-item-content {
+  justify-content: space-between;
+}
+
