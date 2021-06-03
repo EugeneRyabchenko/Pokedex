@@ -37,23 +37,23 @@ export class PokemonDetailsComponent implements OnInit {
             this.pokemonService.getPokemonByUrl(id).subscribe( //<-- gets Pokemon from current URL's ID
                 (p) => {
                     this.pokemon = p
-                    this.subscription.add(
-                        this.pokemonService.getEvolutionChainId(id).subscribe(   //<-- gets Evolution Chain's ID from Pokemon's name
-                            (eci) => {
-                                this.evolutionChainUrlId = eci.evolution_chain.url.split("/")[6]
-                                this.subscription.add(
-                                    this.pokemonService.getEvolutionChainById(this.evolutionChainUrlId).pipe(  //<-- gets Pokemon's Evolution Chain from Evolution Chain's ID
-                                        finalize(() => this.detailsLoading = false),
-                                        map(ec => EvolutionChain.toNameList(ec.chain)),
-                                        switchMap((eList) => {
-                                            const pokemonObsArray = eList.map((l) => this.pokemonService.getPokemonByUrl(l))
-                                            return forkJoin(pokemonObsArray)
-                                        }),
-                                    ).subscribe(ec => this.evolutionForms = ec)
-                                )
-                            }
-                        )
-                    )
+
+
+                    this.pokemonService.getEvolutionChainId(id).pipe(  //<-- gets Evolution Chain's ID from Pokemon's name
+                        tap((eci) => this.evolutionChainUrlId = eci.evolution_chain.url.split("/")[6]),
+                        switchMap((eci) => {
+                            return this.pokemonService.getEvolutionChainById(this.evolutionChainUrlId).pipe(  //<-- gets Pokemon's Evolution Chain from Evolution Chain's ID
+                                finalize(() => this.detailsLoading = false),
+                                map(ec => EvolutionChain.toNameList(ec.chain)),
+                                switchMap((eList) => {
+                                    const pokemonObsArray = eList.map((l) => this.pokemonService.getPokemonByUrl(l))
+                                    return forkJoin(pokemonObsArray)
+                                })
+                            ) //.subscribe(ec => this.evolutionForms = ec)
+
+                        })
+                    
+                    ).subscribe(ec => this.evolutionForms = ec)
                 }
             )
         )
