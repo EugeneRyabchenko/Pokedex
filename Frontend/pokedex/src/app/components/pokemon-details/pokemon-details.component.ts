@@ -15,8 +15,7 @@ import { PokemonService } from "src/app/services/pokemon-service";
 export class PokemonDetailsComponent implements OnInit {
 
     @Input() pokemon: Pokemon
-    offset: number
-    detailsLoading: Boolean = false
+    detailsLoading: boolean = false
     evolutionChainUrlId: string
     evolutionForms: Pokemon[]
 
@@ -35,10 +34,7 @@ export class PokemonDetailsComponent implements OnInit {
         const id = this.activatedRoute.snapshot.paramMap.get("id")
 
         this.subscription.add(
-            this.pokemonService.getPokemonByUrl(id).pipe(   //<-- gets Pokemon from current URL's ID
-                finalize(() => {
-                })
-            ).subscribe(
+            this.pokemonService.getPokemonByUrl(id).subscribe( //<-- gets Pokemon from current URL's ID
                 (p) => {
                     this.pokemon = p
                     this.subscription.add(
