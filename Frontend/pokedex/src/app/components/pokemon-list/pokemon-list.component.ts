@@ -1,4 +1,3 @@
-import { Input } from "@angular/core";
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { Router } from "@angular/router";
@@ -8,24 +7,20 @@ import { PokemonService } from "src/app/services/pokemon-service";
 import { PageEvent } from "@angular/material/paginator";
 import { PokemonStore } from "src/app/stores/pokemon-store";
 
-
-
-
 @Component({
     selector: 'app-pokemon-list',
     templateUrl: './pokemon-list.component.html',
     styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
+    readonly length = 1118
+    readonly pageSize = 20
 
     offset = 0
-    length = 1118
-    pageSize = 20
     pageIndex = 0
-    pokemonPreviewComponentIsVisible = false
     pokemonPreviewName = ""
 
-    @Input() results: Result[]
+    results: Result[]
 
     private subscription: Subscription = new Subscription()
 
@@ -57,29 +52,22 @@ export class PokemonListComponent implements OnInit {
     }
 
     public onPage(event?: PageEvent) {
-        if (event.pageIndex > event.previousPageIndex) {
-            this.onClickNextPage()
-        } else {
-            this.onClickPreviousPage()
-        }
+         event.pageIndex > event.previousPageIndex ? this.onClickNextPage() : this.onClickPreviousPage()
     }
 
     public onClickNextPage() {
         this.offset = this.offset + 20
         this.pageIndex = this.pageIndex + 1
-        this.pokemonStore.setPageIdex(this.pageIndex)
-        this.pokemonStore.setOffset(this.offset)
-        this.subscription.add(
-            this.pokemonService.getAllPokemon(this.offset).subscribe(
-                (r) => {
-                    this.results = r.results
-                })
-        )
+        this.initNewPage()
     }
 
     public onClickPreviousPage() {
         this.offset = this.offset - 20
         this.pageIndex = this.pageIndex - 1
+        this.initNewPage()
+    }
+
+    private initNewPage() {
         this.pokemonStore.setPageIdex(this.pageIndex)
         this.pokemonStore.setOffset(this.offset)
         this.subscription.add(
@@ -89,7 +77,6 @@ export class PokemonListComponent implements OnInit {
                 })
         )
     }
-
 
     public onClickDetails(id: string): void {
         this.router.navigate(['pokemon/' + id])
@@ -97,12 +84,10 @@ export class PokemonListComponent implements OnInit {
 
     public onHoverThumbnail(name: string): void {
         this.pokemonPreviewName = name
-        this.pokemonPreviewComponentIsVisible = true
     }
 
     public onLeaveThumbnail(): void {
         this.pokemonPreviewName = ""
-        this.pokemonPreviewComponentIsVisible = false
     }
 
 }
