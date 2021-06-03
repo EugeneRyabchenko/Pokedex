@@ -38,11 +38,7 @@ export class PokemonDetailsComponent implements OnInit {
                 (p) => {
                     this.pokemon = p
                     this.subscription.add(
-                        this.pokemonService.getEvolutionChainId(id).pipe(   //<-- gets Evolution Chain's ID from Pokemon's name
-                            finalize(() => {
-                                this.detailsLoading = false
-                            })
-                        ).subscribe(
+                        this.pokemonService.getEvolutionChainId(id).subscribe(   //<-- gets Evolution Chain's ID from Pokemon's name
                             (eci) => {
                                 this.evolutionChainUrlId = eci.evolution_chain.url.split("/")[6]
                                 this.subscription.add(
