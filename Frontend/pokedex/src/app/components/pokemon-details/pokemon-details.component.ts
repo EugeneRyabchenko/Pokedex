@@ -28,34 +28,28 @@ export class PokemonDetailsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-
         this.detailsLoading = true
-
         const id = this.activatedRoute.snapshot.paramMap.get("id")
 
         this.subscription.add(
-            this.pokemonService.getPokemonByUrl(id).subscribe( //<-- gets Pokemon from current URL's ID
-                (p) => {
-                    this.pokemon = p
-
-
-                    this.pokemonService.getEvolutionChainId(id).pipe(  //<-- gets Evolution Chain's ID from Pokemon's name
+            this.pokemonService.getPokemonByUrl(id).pipe( //<-- gets Pokemon from current URL's ID
+                tap((p) => this.pokemon = p),
+                switchMap((p) => {
+                    return this.pokemonService.getEvolutionChainId(id).pipe(  //<-- gets Evolution Chain's ID from Pokemon's name
                         tap((eci) => this.evolutionChainUrlId = eci.evolution_chain.url.split("/")[6]),
                         switchMap((eci) => {
                             return this.pokemonService.getEvolutionChainById(this.evolutionChainUrlId).pipe(  //<-- gets Pokemon's Evolution Chain from Evolution Chain's ID
-                                finalize(() => this.detailsLoading = false),
                                 map(ec => EvolutionChain.toNameList(ec.chain)),
                                 switchMap((eList) => {
                                     const pokemonObsArray = eList.map((l) => this.pokemonService.getPokemonByUrl(l))
                                     return forkJoin(pokemonObsArray)
-                                })
-                            ) //.subscribe(ec => this.evolutionForms = ec)
-
+                                }),
+                                finalize(() => this.detailsLoading = false)
+                            )
                         })
-                    
-                    ).subscribe(ec => this.evolutionForms = ec)
-                }
-            )
+                    )
+                })
+            ).subscribe(ec => this.evolutionForms = ec)
         )
     }
 
