@@ -12,9 +12,6 @@ export class PokemonService {
   public static readonly pokemonSpeciesBaseUel = environment.apiBase + 'pokemon-species/' // <-- URL with Pokemon's Evolution Chain IDs
   public static readonly evolutionChainBaseUrl = environment.apiBase + 'evolution-chain/' // <-- Pokemon's URL with his Evolution Chain
 
-  public pokemon: Pokemon
-  public pokemons: Pokemon[]
-
   constructor(private httpClient: HttpClient) {
   }
 
@@ -24,8 +21,7 @@ export class PokemonService {
     const response$ = this.httpClient.get(PokemonService.pokemonBaseUrl + name)
     const pokemon$: Observable<Pokemon> = response$.pipe(
       map((response: any) => {
-        const p = Pokemon.fromJson(response)
-        return p
+        return Pokemon.fromJson(response)
       })
     )
     return pokemon$
@@ -33,15 +29,14 @@ export class PokemonService {
 
   //------------------ GETS POKEMON'S EVOLUTION CHAIN'S ID BY POKEMON'S NAME ------------------//
 
-  public getEvolutionChainId(name: String): Observable<PokemonSpecies> {
+  public getPokemonSpecies(name: String): Observable<PokemonSpecies> {
     const response$ = this.httpClient.get(PokemonService.pokemonSpeciesBaseUel + name)
-    const id$: Observable<PokemonSpecies> = response$.pipe(
+    const ps$: Observable<PokemonSpecies> = response$.pipe(
       map((response: any) => {
-        const s = PokemonSpecies.fromJson(response)
-        return s
+        return PokemonSpecies.fromJson(response)
       })
     )
-    return id$
+    return ps$
   }
 
   //------------------ GETS POKEMON'S EVOLUTION CHAIN BY ID ------------------//
@@ -50,8 +45,7 @@ export class PokemonService {
     const response$ = this.httpClient.get(PokemonService.evolutionChainBaseUrl + id)
     const evolutionChain$: Observable<EvolutionChain> = response$.pipe(
       map((response: any) => {
-        const s = EvolutionChain.fromJson(response)
-        return s
+        return EvolutionChain.fromJson(response)
       })
     )
     return evolutionChain$
@@ -62,9 +56,8 @@ export class PokemonService {
   public getAllPokemon(offset: number): Observable<PokemonResults> {
     const response$ = this.httpClient.get(PokemonService.pokemonBaseUrl + '?offset=' + offset + '&limit=20')
     const results$: Observable<PokemonResults> = response$.pipe(
-      map((response: any) => {
-        const pr = PokemonResults.fromJson(response)
-        return pr
+      map((response: any) => { 
+        return PokemonResults.fromJson(response)
       })
     )
     return results$

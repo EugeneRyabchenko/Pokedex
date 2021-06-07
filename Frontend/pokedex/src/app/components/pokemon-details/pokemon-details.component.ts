@@ -34,21 +34,21 @@ export class PokemonDetailsComponent implements OnInit {
         this.subscription.add(
             this.pokemonService.getPokemonByUrl(id).pipe( //<-- gets Pokemon from current URL's ID
                 tap((p) => this.pokemon = p),
-                switchMap((p) => {
-                    return this.pokemonService.getEvolutionChainId(id).pipe(  //<-- gets Evolution Chain's ID from Pokemon's name
-                        tap((eci) => this.evolutionChainUrlId = eci.evolution_chain.url.split("/")[6]),
-                        switchMap((eci) => {
+                switchMap(() => {
+                    return this.pokemonService.getPokemonSpecies(id).pipe(  //<-- gets Evolution Chain's ID from Pokemon's name
+                        tap((ps) => this.evolutionChainUrlId = ps.evolution_chain.url.split("/")[6]),
+                        switchMap(() => {
                             return this.pokemonService.getEvolutionChainById(this.evolutionChainUrlId).pipe(  //<-- gets Pokemon's Evolution Chain from Evolution Chain's ID
                                 map(ec => EvolutionChain.toNameList(ec.chain)),
                                 switchMap((eList) => {
                                     const pokemonObsArray = eList.map((l) => this.pokemonService.getPokemonByUrl(l))
                                     return forkJoin(pokemonObsArray)
                                 }),
-                                finalize(() => this.detailsLoading = false)
                             )
                         })
                     )
-                })
+                }),
+                finalize(() => this.detailsLoading = false)
             ).subscribe(ec => this.evolutionForms = ec)
         )
     }
