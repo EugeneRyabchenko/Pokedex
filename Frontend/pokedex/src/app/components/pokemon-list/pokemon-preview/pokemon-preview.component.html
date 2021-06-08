@@ -1,6 +1,8 @@
 <div fxLayout="row wrap">
     <div fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%">
 
+        <!-------------PREVIEW PICTURE------------->
+
         <div fxLayout="row wrap" class="_preview-pic-row">
             <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_preview-pic-col">
                 <img *ngIf="detailsLoading" src="assets/pokeball_gif.gif" class="_preview-pokeball">
@@ -8,7 +10,7 @@
             </div>
         </div>
 
-        <!--^^^^^^^^^^^^^^^^^^^PREVIEW PICTURE^^^^^^^^^^^^^^^^^^^-->
+        <!-------------PREVIEW ORDER------------->
 
         <div fxLayout="row wrap" class="_preview-order-row">
             <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_preview-order-col">
@@ -17,10 +19,9 @@
                 <div *ngIf="pokemon?.order >= 100"> #{{pokemon?.order}}</div>
             </div>
         </div>
-
-        <!--^^^^^^^^^^^^^^^^^^^PREVIEW ORDER^^^^^^^^^^^^^^^^^^^-->
-
     </div>
+
+    <!-------------PREVIEW NAME------------->
 
     <div fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" class="_preview-name-col">
         <div fxLayout="row wrap">
@@ -36,8 +37,5 @@
                 {{pokemon?.name}}
             </div>
         </div>
-
-        <!--^^^^^^^^^^^^^^^^^^^PREVIEW NAME^^^^^^^^^^^^^^^^^^^-->
-
     </div>
 </div>

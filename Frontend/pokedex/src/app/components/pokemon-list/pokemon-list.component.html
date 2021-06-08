@@ -6,28 +6,27 @@
     <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="_pokemon-list-main-col">
       <div class="_list-frame">
 
+        <!-------------LIST PAGINATOR------------->
+
         <mat-paginator [pageIndex]="pageIndex" [length]="length" [pageSize]="pageSize" (page)="onPage($event)">
         </mat-paginator>
 
-        <!--^^^^^^^^^^^^^^^^^^^LIST PAGINATOR^^^^^^^^^^^^^^^^^^^-->
+        <!-------------POKEMON NAME------------->
 
         <div class="_list-body">
           <mat-action-list>
-            <mat-list-item class="example-box" *ngFor="let r of results" (click)="onClickDetails(r.name)" (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail()">
+            <mat-list-item class="example-box" *ngFor="let r of results" (click)="onClickDetails(r.name)"
+              (mouseenter)="onHoverThumbnail(r.name)" (mouseleave)="onLeaveThumbnail()">
               <mat-divider></mat-divider>
-
               <div class="_list-name">
                 {{r.name}}
               </div>
 
-              <!--^^^^^^^^^^^^^^^^^^^POKEMON NAME^^^^^^^^^^^^^^^^^^^-->
+              <!-------------POKEMON ID------------->
 
               <div>
                 {{r.id}}
               </div>
-
-              <!--^^^^^^^^^^^^^^^^^^^POKEMON ID^^^^^^^^^^^^^^^^^^^-->
-
             </mat-list-item>
           </mat-action-list>
         </div>
@@ -36,29 +35,28 @@
 
     <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
 
+      <!-------------POKEMON LOGO------------->
+
       <div fxLayout="row wrap" class="_pokemon-logo-row">
         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_pokemon-logo-col">
           <img src="assets/pokemon_logo.png" class="_pokemon-logo-png">
         </div>
       </div>
 
-      <!--^^^^^^^^^^^^^^^^^^^POKEMON LOGO^^^^^^^^^^^^^^^^^^^-->
-
       <div fxLayout="row wrap" class="_pokedex-main-row">
         <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_pokedex-main-col">
           <div class="_pokedex-style-1">
+
+            <!-------------POKEMON PREVIEW------------->
 
             <div class="_pokedex-style-2">
               <app-pokemon-preview *ngIf="pokemonPreviewName" [name]="pokemonPreviewName">
               </app-pokemon-preview>
             </div>
 
-            <!--^^^^^^^^^^^^^^^^^^^POKEMON PREVIEW^^^^^^^^^^^^^^^^^^^-->
+            <!-------------POKEDEX DEVICE------------->
 
             <img src="assets/pokedex_preview.png" class="_pokedex-device-png">
-
-            <!--^^^^^^^^^^^^^^^^^^^POKEDEX DEVICE^^^^^^^^^^^^^^^^^^^-->
-
           </div>
         </div>
       </div>

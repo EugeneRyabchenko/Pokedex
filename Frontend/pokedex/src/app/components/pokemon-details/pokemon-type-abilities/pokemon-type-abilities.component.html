@@ -1,5 +1,7 @@
 <div fxLayout="row wrap" class="_type-abilities-row">
 
+    <!-------------TYPE HEADER------------->
+
     <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
         <div fxLayout="row wrap" class="_type-header-row">
             <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="_type-header-col">
@@ -7,7 +9,7 @@
             </div>
         </div>
 
-        <!--^^^^^^^^^^^^^^^^^^^^^^^^TYPE HEADER^^^^^^^^^^^^^^^^^^^^^^^^-->
+        <!-------------TYPE BODY------------->
 
         <div fxLayout="row wrap" class="_type-body-row">
             <ng-container *ngFor="let t of pokemon?.types">
@@ -20,7 +22,7 @@
         </div>
     </div>
 
-    <!--^^^^^^^^^^^^^^^^^^^^^^^^TYPE BODY^^^^^^^^^^^^^^^^^^^^^^^^-->
+    <!-------------ABILITES HEADER------------->
 
     <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
         <div fxLayout="row wrap" class="_abilities-header-row">
@@ -29,7 +31,7 @@
             </div>
         </div>
 
-        <!--^^^^^^^^^^^^^^^^^^^^^^^^ABILITES HEADER^^^^^^^^^^^^^^^^^^^^^^^^-->
+        <!-------------ABILITIES BODY------------->
 
         <div fxLayout="row wrap" class="_abilities-body-row">
             <ng-container *ngFor="let a of pokemon?.abilities">
@@ -40,8 +42,5 @@
                 </div>
             </ng-container>
         </div>
-
-        <!--^^^^^^^^^^^^^^^^^^^^^^^^ABILITIES BODY^^^^^^^^^^^^^^^^^^^^^^^^-->
-
     </div>
 </div>

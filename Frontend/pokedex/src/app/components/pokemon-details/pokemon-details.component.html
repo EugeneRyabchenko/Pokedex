@@ -1,33 +1,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-------------PALLET TOWN BACKGROUND------------->
+
 <div class="bg">
 
-    <!--^^^^^^^^^^^^PALLET TOWN BACKGROUND^^^^^^^^^^^^-->
+    <!-------------MAIN WHITEBOARD------------->
 
     <div class="main-whiteboard">
 
-        <!--^^^^^^^^^^^^MAIN WHITEBOARD^^^^^^^^^^^^-->
+        <!-------------SPINNGING POKEBALL GIF------------->
+
         <div fxLayout="row wrap">
             <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-
                 <ng-container *ngIf="detailsLoading">
                     <div class="_detailsLoadingPokeballContainer">
                         <img src="assets/pokeball_gif.gif" class="_detailsLoadingPokeball">
                     </div>
                 </ng-container>
-
             </div>
-            <!--^^^^^^^^^^^^SPINNGING POKEBALL GIF^^^^^^^^^^^^-->
+
+            <!-------------MAIN WHITEBOARD MAIN ROW------------->
 
             <ng-container *ngIf="!detailsLoading">
-
                 <div fxLayout="row wrap" class="_main-whiteboard-main-row">
 
-                    <!--^^^^^^^^^^^^MAIN WHITEBOARD MAIN ROW^^^^^^^^^^^^-->
+                    <!-------------MAIN WHITEBOARD MAIN COL------------->
 
                     <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
 
-                        <!--^^^^^^^^^^^^MAIN WHITEBOARD MAIN COL^^^^^^^^^^^^-->
+                        <!-------------POKEMON NAME/ORDER------------->
 
                         <div fxLayout="row wrap">
                             <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
@@ -48,7 +49,7 @@
                                     </div>
                                 </div>
 
-                                <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON NAME/ORDER^^^^^^^^^^^^^^^^^^^^^^^^-->
+                                <!-------------BACK ARROW------------->
 
                                 <div fxLayout="row wrap" class="_back-arrow-row">
                                     <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
@@ -61,14 +62,14 @@
                             </div>
                         </div>
 
-                        <!--^^^^^^^^^^^^^^^^^^^^^^^^BACK ARROW^^^^^^^^^^^^^^^^^^^^^^^^-->
+                        <!-------------POKEMON PIC------------->
 
                         <div fxLayout="row wrap" class="_pic-type-abilities-stats-row">
                             <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
                                 <app-pokemon-picture [pokemon]="pokemon"></app-pokemon-picture>
                             </div>
 
-                            <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON PIC^^^^^^^^^^^^^^^^^^^^^^^^-->
+                            <!-------------POKEMON TYPE AND ABILITIES------------->
 
                             <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
                                 <div fxLayout="row wrap" class="_type-abilities-stats-row">
@@ -76,28 +77,22 @@
                                         class="_type-abilities-stats-col">
                                         <app-pokemon-type-abilities [pokemon]="pokemon"></app-pokemon-type-abilities>
 
-                                        <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON TYPE AND ABILITIES^^^^^^^^^^^^^^^^^^^^^^^^-->
+                                        <!-------------POKEMON STATS------------->
 
                                         <app-pokemon-stats [pokemon]="pokemon"></app-pokemon-stats>
-
-                                        <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON STATS^^^^^^^^^^^^^^^^^^^^^^^^-->
-
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON PIC TYPE ABILITIES STATS ROW^^^^^^^^^^^^^^^^^^^^^^^^-->
+                        <!-------------POKEMON EVOLUTIONS------------->
 
                         <app-pokemon-evolutions *ngIf="evolutionForms?.length > 0" [pokemon]="pokemon"
                             [evolutionForms]="evolutionForms"></app-pokemon-evolutions>
 
-                        <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON EVOLUTIONS^^^^^^^^^^^^^^^^^^^^^^^^-->
+                        <!-------------POKEMON MOVES------------->
 
                         <app-pokemon-moves *ngIf="pokemon.moves?.length > 0" [pokemon]="pokemon"></app-pokemon-moves>
-
-                        <!--^^^^^^^^^^^^^^^^^^^^^^^^POKEMON MOVES^^^^^^^^^^^^^^^^^^^^^^^^-->
-
                     </div>
                 </div>
             </ng-container>
