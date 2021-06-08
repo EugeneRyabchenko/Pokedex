@@ -282,8 +282,7 @@ export class PokemonResults {
     }
 }
 
-export class Result {
-    public id: number        //<-- customly added field to extract the pokemon ID from the URL   
+export class Result {   
     public name: String       //<-- the name of the pokemon in the list of all pokemons
     public url: String      //<-- the url of the pokemon in the list of all pokemons
     public static fromJson(json: any): Result {
@@ -291,17 +290,11 @@ export class Result {
             return undefined
         }
         const r: Result = {
-            id: getIdFromPokemonUrl(json.url),
             name: json.name,
             url: json.url
         }
         return r
     }
-}
-
-export function getIdFromPokemonUrl(url: string): number {
-    return +url.split(PokemonService.pokemonBaseUrl)[1].split('/')[0]
-
 }
 
 
