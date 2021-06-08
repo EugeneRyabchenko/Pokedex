@@ -15,6 +15,9 @@ export class Pokemon {
     //------------------ CONVERTS POKEMON FROM JSON FILE ------------------//
 
     public static fromJson(json: any): Pokemon {
+        if(!json){
+            return undefined
+        }
         const p: Pokemon = {
             sprites: Sprites.fromJson(json.sprites),
             name: json.name,
@@ -34,6 +37,9 @@ export class Pokemon {
 export class PokemonSpecies {
     public evolution_chain: EvolutionChainUrl
     public static fromJson(json: any): PokemonSpecies {
+        if(!json){
+            return undefined
+        }
         const ps: PokemonSpecies = {
             evolution_chain: json.evolution_chain
         }
@@ -44,6 +50,9 @@ export class PokemonSpecies {
 export class EvolutionChainUrl {
     public url: string
     public static fromJson(json: any): EvolutionChainUrl {
+        if(!json){
+            return undefined
+        }
         const ecu: EvolutionChainUrl = {
             url: json.url
         }
@@ -55,6 +64,9 @@ export class EvolutionChain {
     public id: number
     public chain: Chain
     public static fromJson(json: any): EvolutionChain {
+        if(!json){
+            return undefined
+        }
         const ec: EvolutionChain = {
             id: json.id,
             chain: json.chain
@@ -78,6 +90,9 @@ export class Chain {
 export class Species {
     public name: string  //<-- actual species name
     public static fromJson(json: any): Species {
+        if(!json){
+            return undefined
+        }
         const s: Species = {
             name: json.name
         }
@@ -90,6 +105,9 @@ export class Species {
 export class OfficialArtwork {
     public frontDefault: String  //<-- actual artwork URL
     public static fromJson(json: any): OfficialArtwork {
+        if(!json){
+            return undefined
+        }
         const oa: OfficialArtwork = {
             frontDefault: json.front_default
         }
@@ -100,6 +118,9 @@ export class OfficialArtwork {
 export class Other {
     public officalArtwork: OfficialArtwork
     public static fromJson(json: any): Other {
+        if(!json){
+            return undefined
+        }
         const o: Other = {
             officalArtwork: OfficialArtwork.fromJson(json['official-artwork'])
         }
@@ -111,6 +132,9 @@ export class Sprites {
     public thumbnail: String
     public other: Other
     public static fromJson(json: any): Sprites {
+        if(!json){
+            return undefined
+        }
         const s: Sprites = {
             thumbnail: json.front_default,
             other: Other.fromJson(json.other)
@@ -124,6 +148,9 @@ export class Sprites {
 export class AbilityName {
     public name: String     //<-- actual ability name
     public static fromJson(json: any): AbilityName {
+        if(!json){
+            return undefined
+        }
         const a: AbilityName = {
             name: json.name
         }
@@ -134,6 +161,9 @@ export class AbilityName {
 export class Ability {
     public ability: AbilityName
     public static fromJson(json: any): Ability {
+        if(!json){
+            return undefined
+        }
         const a: Ability = {
             ability: AbilityName.fromJson(json.ability)
         }
@@ -148,6 +178,9 @@ export class TypeName {
     public url: String
     public typeId: number
     public static fromJson(json: any): TypeName {
+        if(!json){
+            return undefined
+        }
         const td: TypeName = {
             url: json.url,
             name: json.name,
@@ -160,6 +193,9 @@ export class TypeName {
 export class Type {
     public type: TypeName
     public static fromJson(json: any): Type {
+        if(!json){
+            return undefined
+        }
         const t: Type = {
             type: TypeName.fromJson(json.type)
         }
@@ -172,6 +208,9 @@ export class Type {
 export class StatName {
     public name: String     //<-- actual stat name
     public static fromJson(json: any): StatName {
+        if(!json){
+            return undefined
+        }
         const sn: StatName = {
             name: json.name
         }
@@ -183,6 +222,9 @@ export class Stat {
     public statValue: number
     public stat: StatName
     public static fromJson(json: any): Stat {
+        if(!json){
+            return undefined
+        }
         const s: Stat = {
             statValue: json.base_stat,
             stat: StatName.fromJson(json.stat)
@@ -196,6 +238,9 @@ export class Stat {
 export class MoveName {
     public name: String     //<-- actual move name
     public static fromJson(json: any): MoveName {
+        if(!json){
+            return undefined
+        }
         const mn: MoveName = {
             name: json.name
         }
@@ -206,6 +251,9 @@ export class MoveName {
 export class Move {
     public move: MoveName
     public static fromJson(json: any): Move {
+        if(!json){
+            return undefined
+        }
         const m: Move = {
             move: MoveName.fromJson(json.move)
         }
@@ -221,6 +269,9 @@ export class PokemonResults {
     public previous: string
     public results: Result[]
     public static fromJson(json: any): PokemonResults {
+        if(!json){
+            return undefined
+        }
         const pr: PokemonResults = {
             count: json.count,
             next: json.next,
@@ -236,6 +287,9 @@ export class Result {
     public name: String       //<-- the name of the pokemon in the list of all pokemons
     public url: String      //<-- the url of the pokemon in the list of all pokemons
     public static fromJson(json: any): Result {
+        if(!json){
+            return undefined
+        }
         const r: Result = {
             id: getIdFromPokemonUrl(json.url),
             name: json.name,
